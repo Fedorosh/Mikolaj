@@ -5,12 +5,22 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+    public enum MovementType
+    {
+        Keyboard,
+        Mouse,
+        Controller
+    }
+
     private CharacterController controller;
     private Animator animator;
 
     public float speed = 12f;
+    public float rotateSpeed = 200f;
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
+    public MovementType movementType = MovementType.Keyboard;
+
     private const string movingBool = "isMoving";
     private const string jumpingTrigger = "Jump";
 
@@ -26,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -37,15 +48,19 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        float x = Input.GetAxis("Horizontal");
+
         float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxis("Horizontal");
+
+        if (Input.GetKey(KeyCode.Mouse1)) z = 1f;
 
         if(animator != null)
         animator.SetBool(movingBool, z != 0f);
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 move = transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
+        transform.Rotate(Vector3.up * x * rotateSpeed * Time.deltaTime);
 
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
