@@ -1,17 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    public enum MovementType
-    {
-        Keyboard,
-        Mouse,
-        Controller
-    }
-
     private CharacterController controller;
     private Animator animator;
 
@@ -19,10 +13,11 @@ public class PlayerMovement : MonoBehaviour
     public float rotateSpeed = 200f;
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
-    public MovementType movementType = MovementType.Keyboard;
 
     private const string movingBool = "isMoving";
     private const string jumpingTrigger = "Jump";
+
+    [SerializeField] private Text debugText;
 
 
     public Transform groundCheck;
@@ -31,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+    bool isJumping = false;
 
     private void Start()
     {
@@ -42,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (isGrounded && isJumping) isJumping = false;
+
 
         if(isGrounded && velocity.y < 0)
         {
@@ -71,5 +69,15 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void LateUpdate()
+    {
+        if(Input.GetButtonDown("Jump") && !isGrounded && !isJumping)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            animator.SetTrigger(jumpingTrigger);
+            isJumping = true;
+        }
     }
 }
