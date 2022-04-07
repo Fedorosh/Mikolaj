@@ -18,11 +18,13 @@ public class PlayerMovement : MonoBehaviour
     private const string jumpingTrigger = "Jump";
 
     [SerializeField] private Text debugText;
+    [SerializeField] private Joystick joystick;
 
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+    [SerializeField] private GameObject androidUI;
 
     Vector3 velocity;
     bool isGrounded;
@@ -32,7 +34,12 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+#if !UNITY_ANDROID || UNITY_EDITOR
         Cursor.lockState = CursorLockMode.Locked;
+#endif
+#if UNITY_ANDROID && !UNITY_EDITOR
+        androidUI.SetActive(true);
+#endif
     }
 
     void Update()
@@ -46,9 +53,13 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-
+#if !UNITY_ANDROID || UNITY_EDITOR
         float z = Input.GetAxis("Vertical");
         float x = Input.GetAxis("Horizontal");
+#else
+        float z = joystick.Vertical;
+        float x = joystick.Horizontal;
+#endif
 
         if (Input.GetKey(KeyCode.Mouse1)) z = 1f;
 
@@ -59,8 +70,11 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
         transform.Rotate(Vector3.up * x * rotateSpeed * Time.deltaTime);
-
+#if UNITY_EDITOR || !UNITY_ANDROID
         if(Input.GetButtonDown("Jump") && isGrounded)
+#else
+        if(GetTouch() && isGrounded)
+#endif
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             animator.SetTrigger(jumpingTrigger);
@@ -73,11 +87,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void LateUpdate()
     {
+#if UNITY_EDITOR || !UNITY_ANDROID
         if(Input.GetButtonDown("Jump") && !isGrounded && !isJumping)
+#else
+        if (GetTouch() && !isGrounded && !isJumping)
+#endif
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             animator.SetTrigger(jumpingTrigger);
             isJumping = true;
         }
     }
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+    private bool GetTouch()
+    {
+        if(Input.touchCount == 0) return false;
+
+        Touch touch = Input.GetTouch(Input.touchCount - 1);
+
+        Vector2 touchPos = touch.position;
+        int x = Screen.width / 2;
+        return touchPos.x >= x && touch.phase == TouchPhase.Ended;
+    }
+#endif
 }
