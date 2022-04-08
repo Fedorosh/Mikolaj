@@ -34,10 +34,10 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
-#if !UNITY_ANDROID || UNITY_EDITOR
+#if !UNITY_ANDROID
         Cursor.lockState = CursorLockMode.Locked;
 #endif
-#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID
         androidUI.SetActive(true);
 #endif
     }
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-#if !UNITY_ANDROID || UNITY_EDITOR
+#if !UNITY_ANDROID
         float z = Input.GetAxis("Vertical");
         float x = Input.GetAxis("Horizontal");
 #else
@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
         transform.Rotate(Vector3.up * x * rotateSpeed * Time.deltaTime);
-#if UNITY_EDITOR || !UNITY_ANDROID
+#if !UNITY_ANDROID
         if(Input.GetButtonDown("Jump") && isGrounded)
 #else
         if(GetTouch() && isGrounded)
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-#if UNITY_EDITOR || !UNITY_ANDROID
+#if !UNITY_ANDROID
         if(Input.GetButtonDown("Jump") && !isGrounded && !isJumping)
 #else
         if (GetTouch() && !isGrounded && !isJumping)
@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID
     private bool GetTouch()
     {
         if(Input.touchCount == 0) return false;
