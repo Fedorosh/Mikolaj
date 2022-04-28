@@ -123,6 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &394286288 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8571113354267292332, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+  m_PrefabInstance: {fileID: 8571113355176204055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &596378551 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8696436649793001169, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+  m_PrefabInstance: {fileID: 8571113355176204055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &780632256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -487,6 +497,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerWithCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642030, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: positionSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642030, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: rotationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642030, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: smoothPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642030, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 596378551}
+    - target: {fileID: 8571113354970642030, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: transformToFollow
+      value: 
+      objectReference: {fileID: 394286288}
     - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: joystick
       value: 
@@ -495,5 +525,9 @@ PrefabInstance:
       propertyPath: androidUI
       value: 
       objectReference: {fileID: 2044387647}
+    - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: rotateSpeed
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
