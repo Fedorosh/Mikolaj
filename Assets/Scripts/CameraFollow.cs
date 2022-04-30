@@ -6,7 +6,8 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Transform transformToFollow;
-    [SerializeField] private float smoothTime = 10f;
+    public float smoothTime = 10f;
+    [SerializeField] private float rotationSpeed = 10f;
 
     private Vector3 startingCameraPosition = Vector3.zero;
 
@@ -18,7 +19,6 @@ public class CameraFollow : MonoBehaviour
     private void LateUpdate()
     {
         transform.position = Vector3.SmoothDamp(transform.position,transformToFollow.position,ref startingCameraPosition,smoothTime * Time.deltaTime);
-        //transform.rotation = Quaternion.Lerp(transform.rotation,playerTransform.rotation,rotationSpeed * Time.deltaTime);
         transform.LookAt(playerTransform);
     }
 }
