@@ -463,7 +463,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 12
+  m_Text: 10
 --- !u!222 &517941336
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -510,6 +510,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbc0f70e8e65da42802937682b45b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  binders:
+  - key: 111
+    button: {fileID: 1029551838}
+  - key: 112
+    button: {fileID: 58268308}
 --- !u!224 &749175274 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3914386295907581368, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}

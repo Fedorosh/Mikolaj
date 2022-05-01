@@ -3,101 +3,103 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(CharacterController))]
-public class PlayerMovement : MonoBehaviour
+namespace Fedorosh
 {
-    private CharacterController controller;
-    private Animator animator;
-
-    public float speed = 12f;
-    public float rotateSpeed = 200f;
-    public float gravity = -9.81f;
-    public float jumpHeight = 3.0f;
-
-    private const string movingBool = "isMoving";
-    private const string jumpingTrigger = "Jump";
-
-    [SerializeField] private Text debugText;
-    [SerializeField] private Joystick joystick;
-
-
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
-    [SerializeField] private GameObject androidUI;
-
-    Vector3 velocity;
-    bool isGrounded;
-    bool isJumping = false;
-
-    private void Start()
+    [RequireComponent(typeof(CharacterController))]
+    public class PlayerMovement : MonoBehaviour
     {
-        controller = GetComponent<CharacterController>();
-        animator = GetComponentInChildren<Animator>();
+        private CharacterController controller;
+        private Animator animator;
+
+        public float speed = 12f;
+        public float rotateSpeed = 200f;
+        public float gravity = -9.81f;
+        public float jumpHeight = 3.0f;
+
+        private const string movingBool = "isMoving";
+        private const string jumpingTrigger = "Jump";
+
+        [SerializeField] private Text debugText;
+        [SerializeField] private Joystick joystick;
+
+
+        public Transform groundCheck;
+        public float groundDistance = 0.4f;
+        public LayerMask groundMask;
+        [SerializeField] private GameObject androidUI;
+
+        Vector3 velocity;
+        bool isGrounded;
+        bool isJumping = false;
+
+        private void Start()
+        {
+            controller = GetComponent<CharacterController>();
+            animator = GetComponentInChildren<Animator>();
 #if !UNITY_ANDROID
-        Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked;
 #endif
 #if UNITY_ANDROID
         androidUI.SetActive(true);
 #endif
-    }
-
-    void Update()
-    {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if (isGrounded && isJumping) isJumping = false;
-
-
-        if(isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
         }
 
+        void Update()
+        {
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+            if (isGrounded && isJumping) isJumping = false;
+
+
+            if (isGrounded && velocity.y < 0)
+            {
+                velocity.y = -2f;
+            }
+
 #if !UNITY_ANDROID
-        float z = Input.GetAxis("Vertical");
-        float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+            float x = Input.GetAxis("Horizontal");
 #else
         float z = joystick.Vertical;
         float x = joystick.Horizontal;
 #endif
 
-        if (Input.GetKey(KeyCode.Mouse1)) z = 1f;
+            if (Input.GetKey(KeyCode.Mouse1)) z = 1f;
 
-        if(animator != null)
-        animator.SetBool(movingBool, z != 0f);
+            if (animator != null)
+                animator.SetBool(movingBool, z != 0f);
 
-        Vector3 move = transform.forward * z;
+            Vector3 move = transform.forward * z;
 
-        controller.Move(move * speed * Time.deltaTime);
-        transform.Rotate(Vector3.up * x * rotateSpeed * Time.deltaTime);
+            controller.Move(move * speed * Time.deltaTime);
+            transform.Rotate(Vector3.up * x * rotateSpeed * Time.deltaTime);
 #if !UNITY_ANDROID
-        if(Input.GetButtonDown("Jump") && isGrounded)
+            if (Input.GetButtonDown("Jump") && isGrounded)
 #else
         if(GetTouch() && isGrounded)
 #endif
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            animator.SetTrigger(jumpingTrigger);
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                animator.SetTrigger(jumpingTrigger);
+            }
+
+            velocity.y += gravity * Time.deltaTime;
+
+            controller.Move(velocity * Time.deltaTime);
         }
 
-        velocity.y += gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
-    }
-
-    private void LateUpdate()
-    {
+        private void LateUpdate()
+        {
 #if !UNITY_ANDROID
-        if(Input.GetButtonDown("Jump") && !isGrounded && !isJumping)
+            if (Input.GetButtonDown("Jump") && !isGrounded && !isJumping)
 #else
         if (GetTouch() && !isGrounded && !isJumping)
 #endif
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            animator.SetTrigger(jumpingTrigger);
-            isJumping = true;
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                animator.SetTrigger(jumpingTrigger);
+                isJumping = true;
+            }
         }
-    }
 
 #if UNITY_ANDROID
     private bool GetTouch()
@@ -111,4 +113,6 @@ public class PlayerMovement : MonoBehaviour
         return touchPos.x >= x && touch.phase == TouchPhase.Ended;
     }
 #endif
+    }
 }
+

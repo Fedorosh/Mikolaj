@@ -1,18 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class DebugConsole : MonoBehaviour
+namespace Fedorosh.Debug
 {
-    // Start is called before the first frame update
-    void Start()
+    public class DebugConsole : MonoBehaviour
     {
-        
+        public List<KeyButtonBinder> binders;
+        void Start()
+        {
+
+        }
+
+        void Update()
+        {
+            HandleBinders();
+        }
+
+        private void HandleBinders()
+        {
+            foreach (var binder in binders) binder.HandleKeyClicked();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    [Serializable]
+    public class KeyButtonBinder
     {
-        
+        public KeyCode key;
+        public Button button;
+
+        public void HandleKeyClicked()
+        {
+            if (Input.GetKeyDown(key)) button.onClick?.Invoke();
+        }
     }
 }
+
