@@ -6,16 +6,10 @@ namespace Fedorosh.Debug
 {
     public class DebugAction : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        protected virtual void Start() { }
+        protected virtual void Update() { }
+        public virtual void OnValueChanged(int value)
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
     }
 }

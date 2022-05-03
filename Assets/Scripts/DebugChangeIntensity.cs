@@ -12,13 +12,13 @@ namespace Fedorosh.Debug
         [Range(1, 100)]
         public int stepMultiplier = 1;
         public int maxValue = 10000;
-        private void Start()
+        protected override void Start()
         {
             int valueInt;
             if (!int.TryParse(valueText.text, out valueInt)) return;
             cameraScript.smoothTime = valueInt;
         }
-        public void OnValueChanged(int value)
+        public override void OnValueChanged(int value)
         {
             int valueInt;
             if (!int.TryParse(valueText.text, out valueInt)) return;
