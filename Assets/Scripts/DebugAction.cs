@@ -11,6 +11,9 @@ namespace Fedorosh.Debug
         public virtual void OnValueChanged(int value)
         {
         }
+        public virtual void OnButtonClicked()
+        {
+        }
     }
 }
 
