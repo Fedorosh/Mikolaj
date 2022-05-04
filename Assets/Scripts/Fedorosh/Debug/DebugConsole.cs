@@ -9,6 +9,7 @@ namespace Fedorosh.Debug
     public class DebugConsole : MonoBehaviour
     {
         public List<KeyButtonBinder> binders;
+        [SerializeField] private GameObject console;
         void Start()
         {
 
@@ -21,7 +22,11 @@ namespace Fedorosh.Debug
 
         private void HandleBinders()
         {
-            foreach (var binder in binders) binder.HandleKeyClicked();
+            foreach (var binder in binders)
+            {
+                if (binder.blockWhenHidden && !console.activeSelf) continue;
+                binder.HandleKeyClicked();
+            }
         }
     }
 
@@ -30,6 +35,7 @@ namespace Fedorosh.Debug
     {
         public KeyCode key;
         public Button button;
+        public bool blockWhenHidden;
 
         public void HandleKeyClicked()
         {
