@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Fedorosh.Debug
 {
-    public class DebugAction : MonoBehaviour
+    public abstract class DebugAction : MonoBehaviour
     {
         protected virtual void Start() { }
         protected virtual void Update() { }
