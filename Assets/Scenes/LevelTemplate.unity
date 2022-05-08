@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &45722495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1959837533, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+  m_PrefabInstance: {fileID: 780632256}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &232195803
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +215,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232195803}
   m_CullTransparentMesh: 1
+--- !u!114 &235482584 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1029551838, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+  m_PrefabInstance: {fileID: 780632256}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &252841399
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,19 +308,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 252841402}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2065575359}
-        m_TargetAssemblyTypeName: Fedorosh.Debug.DebugShowHideConsole, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &252841402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,6 +363,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75cacf995529d57498f4aaee1649b728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &515483898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 58268308, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+  m_PrefabInstance: {fileID: 780632256}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &596378551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8696436649793001169, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
@@ -370,6 +391,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 58268308, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317018640, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 517941337, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: cameraScript
       value: 
@@ -406,9 +435,21 @@ PrefabInstance:
       propertyPath: binders.Array.data[3].blockWhenHidden
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 995477954, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1029551837, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.6689987
+      objectReference: {fileID: 0}
+    - target: {fileID: 1029551838, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959837533, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3914386295907581364, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: m_Name
@@ -500,6 +541,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+--- !u!114 &856543949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 317018640, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+  m_PrefabInstance: {fileID: 780632256}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &900117890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 171757325, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+  m_PrefabInstance: {fileID: 780632256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &900117891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900117890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15fd9e8f29e9354cafb8d8161927164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  increaseDecreaseButtons:
+    decreaseButton: {fileID: 0}
+    increaseButton: {fileID: 0}
+  standardButton: {fileID: 45722495}
 --- !u!114 &953258759 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3528443555665389705, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
@@ -577,6 +650,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1161140905 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 995477954, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+  m_PrefabInstance: {fileID: 780632256}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1418976871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 517941333, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+  m_PrefabInstance: {fileID: 780632256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1418976876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418976871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15fd9e8f29e9354cafb8d8161927164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  increaseDecreaseButtons:
+    decreaseButton: {fileID: 235482584}
+    increaseButton: {fileID: 515483898}
+  standardButton: {fileID: 0}
 --- !u!1 &1579701424
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,6 +777,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1593547891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 393739379, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+  m_PrefabInstance: {fileID: 780632256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1593547894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593547891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15fd9e8f29e9354cafb8d8161927164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  increaseDecreaseButtons:
+    decreaseButton: {fileID: 856543949}
+    increaseButton: {fileID: 1161140905}
+  standardButton: {fileID: 0}
 --- !u!1 &1637417645
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,6 +1012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2065575358}
   - component: {fileID: 2065575359}
+  - component: {fileID: 2065575360}
   m_Layer: 5
   m_Name: ShowHideButton
   m_TagString: Untagged
@@ -926,6 +1053,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   console: {fileID: 1944425948}
+--- !u!114 &2065575360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065575357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15fd9e8f29e9354cafb8d8161927164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  increaseDecreaseButtons:
+    decreaseButton: {fileID: 0}
+    increaseButton: {fileID: 0}
+  standardButton: {fileID: 252841401}
 --- !u!1001 &8571113355176204055
 PrefabInstance:
   m_ObjectHideFlags: 0
