@@ -1,3 +1,5 @@
+using Fedorosh.Utils;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,27 +9,22 @@ namespace Fedorosh.Dying
 {
     public class DyingController : MonoBehaviour
     {
-        public static TriggerDieEvent TriggerDieEvent;
-
-        private bool diedAlready = false;
+        public static TriggerDieEvent TriggerDieEvent = new TriggerDieEvent();
 
         public DyingTrigger[] DieTriggers;
 
         private void Start()
         {
-            TriggerDieEvent.AddListener(DieEventTriggered);
-        }
-
-        private void DieEventTriggered(DyingObject obj)
-        {
-            diedAlready = true;
         }
 
         private void Update()
         {
             foreach(var trigger in DieTriggers) 
-                if(!diedAlready)
-                    trigger.HandleTriggerDieEvent(TriggerDieEvent);
+                if(trigger.HandleTriggerDieEvent(out DyingObject dyingObject))
+                {
+                    TriggerDieEvent?.Invoke(dyingObject);
+                    dyingObject.State = DyingObjectState.Dead;
+                }
         }
     }
 }

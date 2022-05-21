@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 727590617}
   - component: {fileID: 727590618}
   - component: {fileID: 727590619}
+  - component: {fileID: 727590620}
   m_Layer: 0
   m_Name: DyingController
   m_TagString: Untagged
@@ -262,6 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DieTriggers:
   - {fileID: 727590619}
+  - {fileID: 727590620}
 --- !u!114 &727590619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,8 +276,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55fd78ef0c100d64a81a9c104b95242f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yValueToFall: -30
-  objectToDie: {fileID: 8571113355176204056}
+  dyingObject: {fileID: 8571113355176204056}
+  yValueToFall: -10
+--- !u!114 &727590620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727590616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e0a4485c33ef9479a3e239ba05804c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dyingObject: {fileID: 8571113355176204056}
 --- !u!1001 &780632256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -285,7 +300,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1029551837, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.6689997
+      value: 0.6689987
       objectReference: {fileID: 0}
     - target: {fileID: 2722051767543700260, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: playerScript
@@ -398,7 +413,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2055be167d23dc54f8312c0ee9dbc887, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2055be167d23dc54f8312c0ee9dbc887, type: 3}
       propertyPath: m_LocalScale.x
@@ -716,7 +731,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 88.086, y: -30, z: 0}
 --- !u!1001 &1810124001
 PrefabInstance:
@@ -1009,6 +1024,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3080762002956173570, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836584388591849422, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: State
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8571113354732516953, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}

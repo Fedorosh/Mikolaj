@@ -4,7 +4,13 @@ using UnityEngine;
 
 namespace Fedorosh.Dying
 {
+    public enum DyingObjectState
+    {
+        Dead,
+        Alive
+    }
     public class DyingObject : MonoBehaviour
     {
+        public DyingObjectState State;
     }
 }
