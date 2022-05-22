@@ -1,3 +1,4 @@
+using Fedorosh.Dying;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,8 @@ namespace Fedorosh
 
         private const string movingBool = "isMoving";
         private const string jumpingTrigger = "Jump";
+        private const string dyingTrigger = "Die";
+        private const string respawnTrigger = "Respawn";
 
         [SerializeField] private Text debugText;
         [SerializeField] private Joystick joystick;
@@ -36,6 +39,7 @@ namespace Fedorosh
         {
             controller = GetComponent<CharacterController>();
             animator = GetComponentInChildren<Animator>();
+            DyingController.TriggerDieEvent.AddListener(Die);
 #if !UNITY_ANDROID
             Cursor.lockState = CursorLockMode.Locked;
 #endif
@@ -99,6 +103,11 @@ namespace Fedorosh
                 animator.SetTrigger(jumpingTrigger);
                 isJumping = true;
             }
+        }
+
+        private void Die(DyingObject dyingObject)
+        {
+            animator.SetTrigger(dyingTrigger);
         }
 
 #if UNITY_ANDROID

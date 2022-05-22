@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dyingObject: {fileID: 8571113355176204056}
-  yValueToFall: -10
+  yValueToFall: -5
 --- !u!114 &727590620
 MonoBehaviour:
   m_ObjectHideFlags: 0
