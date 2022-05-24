@@ -300,7 +300,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1029551837, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.6689987
+      value: 0.6689997
       objectReference: {fileID: 0}
     - target: {fileID: 2722051767543700260, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: playerScript
@@ -596,6 +596,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1156108979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1156108981}
+  - component: {fileID: 1156108980}
+  m_Layer: 0
+  m_Name: InputMiddleware
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1156108980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156108979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8521ffa148d91394a9b5e10fae20d995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dyingObject: {fileID: 8571113355176204056}
+--- !u!4 &1156108981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156108979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1489398248
 GameObject:
@@ -1102,6 +1146,10 @@ PrefabInstance:
       propertyPath: transformToFollow
       value: 
       objectReference: {fileID: 394286288}
+    - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 1156108980}
     - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: joystick
       value: 

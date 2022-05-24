@@ -12,6 +12,7 @@ namespace Fedorosh
         private CharacterController controller;
         private Animator animator;
 
+
         public float speed = 12f;
         public float rotateSpeed = 200f;
         public float gravity = -9.81f;
@@ -24,6 +25,7 @@ namespace Fedorosh
 
         [SerializeField] private Text debugText;
         [SerializeField] private Joystick joystick;
+        [SerializeField] private InputMiddleware input;
 
 
         public Transform groundCheck;
@@ -60,14 +62,14 @@ namespace Fedorosh
             }
 
 #if !UNITY_ANDROID
-            float z = Input.GetAxis("Vertical");
-            float x = Input.GetAxis("Horizontal");
+            float z = input.GetAxis("Vertical");
+            float x = input.GetAxis("Horizontal");
 #else
         float z = joystick.Vertical;
         float x = joystick.Horizontal;
 #endif
 
-            if (Input.GetKey(KeyCode.Mouse1)) z = 1f;
+            if (input.GetKey(KeyCode.Mouse1)) z = 1f;
 
             if (animator != null)
                 animator.SetBool(movingBool, z != 0f);
@@ -77,7 +79,7 @@ namespace Fedorosh
             controller.Move(move * speed * Time.deltaTime);
             transform.Rotate(Vector3.up * x * rotateSpeed * Time.deltaTime);
 #if !UNITY_ANDROID
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            if (input.GetButtonDown("Jump") && isGrounded)
 #else
         if(GetTouch() && isGrounded)
 #endif
@@ -94,7 +96,7 @@ namespace Fedorosh
         private void LateUpdate()
         {
 #if !UNITY_ANDROID
-            if (Input.GetButtonDown("Jump") && !isGrounded && !isJumping)
+            if (input.GetButtonDown("Jump") && !isGrounded && !isJumping)
 #else
         if (GetTouch() && !isGrounded && !isJumping)
 #endif
