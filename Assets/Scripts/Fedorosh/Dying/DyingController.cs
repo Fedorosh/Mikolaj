@@ -11,16 +11,17 @@ namespace Fedorosh.Dying
     {
         public static TriggerDieEvent TriggerDieEvent = new TriggerDieEvent();
 
-        public DyingTrigger[] DieTriggers;
-
-        private void Start()
-        {
-        }
+        public DyingTrigger[] dieTriggers;
 
         private void Update()
         {
-            foreach(var trigger in DieTriggers) 
-                if(trigger.HandleTriggerDieEvent(out DyingObject dyingObject))
+            HandleTriggers();
+        }
+
+        private void HandleTriggers()
+        {
+            foreach (var trigger in dieTriggers)
+                if (trigger.HandleTriggerDieEvent(out DyingObject dyingObject))
                 {
                     TriggerDieEvent?.Invoke(dyingObject);
                     dyingObject.State = DyingObjectState.Dead;
