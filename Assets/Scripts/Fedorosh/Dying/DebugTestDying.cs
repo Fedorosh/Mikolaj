@@ -1,4 +1,5 @@
 using Fedorosh.Dying;
+using Fedorosh.Respawning;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ public class DebugTestDying : MonoBehaviour
             if (DyingController.TriggerDieEvent == null) throw new NullReferenceException("TriggerDieEvent faktycznie jest nullem.");
             DyingController.TriggerDieEvent.AddListener(OnDie);
 
+            if (RespawningController.TriggerRespawnEvent == null) throw new NullReferenceException("TriggerRespawnEvent te¿ jest nullem.");
+            RespawningController.TriggerRespawnEvent.AddListener(OnRespawn);
         }
         catch (NullReferenceException e)
         {
@@ -21,6 +24,10 @@ public class DebugTestDying : MonoBehaviour
     }
     public void OnDie(DyingObject dyingObject)
     {
-        Debug.Log($"{dyingObject.name} died");
+        Debug.Log($"{dyingObject.name} died.");
+    }
+    public void OnRespawn(DyingObject dyingObject)
+    {
+        Debug.Log($"{dyingObject.name} respawned.");
     }
 }

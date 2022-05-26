@@ -4,15 +4,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Fedorosh.Respawning
 {
     public class RespawnAfterDieTrigger : RespawningTrigger
     {
+        public float timeToRespawn = 0f;
+        private float timeLeftToRespawn;
+        private void Start()
+        {
+            timeLeftToRespawn = timeToRespawn;
+        }
         public override bool HandleTriggerRespawnEvent(out DyingObject dyingObjectRef)
         {
             dyingObjectRef = null;
-            return true;
+            if(!CheckRespawningObjectState()) return false;
+            timeLeftToRespawn -= Time.deltaTime;
+            if(timeLeftToRespawn <= 0f)
+            {
+                timeLeftToRespawn = timeToRespawn;
+                dyingObjectRef = dyingObject;
+                return true;
+            }
+            return false;
         }
     }
 }

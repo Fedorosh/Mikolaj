@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c597c69052e4441b8b71224c827f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DieTriggers:
+  dieTriggers:
   - {fileID: 727590619}
   - {fileID: 727590620}
 --- !u!114 &727590619
@@ -981,6 +981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2052405057}
   - component: {fileID: 2052405056}
+  - component: {fileID: 2052405058}
   m_Layer: 0
   m_Name: RespawningController
   m_TagString: Untagged
@@ -1000,6 +1001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114139733cb78e040819c773c523839b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnTriggers:
+  - {fileID: 2052405058}
 --- !u!4 &2052405057
 Transform:
   m_ObjectHideFlags: 0
@@ -1014,6 +1017,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2052405058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052405055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f976dbcf06ff3429442454fe617369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dyingObject: {fileID: 8571113355176204056}
+  timeToRespawn: 4
 --- !u!1 &2075791337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2566842326586142831, guid: 2055be167d23dc54f8312c0ee9dbc887, type: 3}
