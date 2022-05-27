@@ -1,4 +1,5 @@
 using Fedorosh.Dying;
+using Fedorosh.Respawning;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,6 +43,7 @@ namespace Fedorosh
             controller = GetComponent<CharacterController>();
             animator = GetComponentInChildren<Animator>();
             DyingController.TriggerDieEvent.AddListener(Die);
+            RespawningController.TriggerRespawnEvent.AddListener(Respawn);
 #if !UNITY_ANDROID
             Cursor.lockState = CursorLockMode.Locked;
 #endif
@@ -110,6 +112,10 @@ namespace Fedorosh
         private void Die(DyingObject dyingObject)
         {
             animator.SetTrigger(dyingTrigger);
+        }
+        private void Respawn(DyingObject dyingObject)
+        {
+            animator.SetTrigger(respawnTrigger);
         }
 
 #if UNITY_ANDROID
