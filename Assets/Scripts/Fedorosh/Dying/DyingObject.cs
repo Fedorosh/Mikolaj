@@ -12,5 +12,10 @@ namespace Fedorosh.Dying
     public class DyingObject : MonoBehaviour
     {
         public DyingObjectState State;
+
+        [Header("Optional references")]
+        public CharacterController CharacterController;
+
     }
+
 }

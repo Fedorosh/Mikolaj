@@ -112,10 +112,12 @@ namespace Fedorosh
         private void Die(DyingObject dyingObject)
         {
             animator.SetTrigger(dyingTrigger);
+            dyingObject.CharacterController.enabled = false;
         }
         private void Respawn(DyingObject dyingObject)
         {
             animator.SetTrigger(respawnTrigger);
+            dyingObject.CharacterController.enabled = true;
         }
 
 #if UNITY_ANDROID

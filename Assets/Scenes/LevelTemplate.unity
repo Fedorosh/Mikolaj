@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &195676626 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8571113354732516953, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+  m_PrefabInstance: {fileID: 8571113355176204055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &213142385
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -184,6 +189,52 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
+--- !u!1 &316851674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 316851676}
+  - component: {fileID: 316851675}
+  m_Layer: 0
+  m_Name: RepositionController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &316851675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316851674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d623613499bc2489bda0c15b5e7b9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repositionObjectParent: {fileID: 195676626}
+  actualRepositionPoint: {fileID: 1402912359}
+  playerRespawnOffset: {x: 0, y: 0, z: 0}
+--- !u!4 &316851676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316851674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &394286288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8571113354267292332, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
@@ -641,6 +692,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &1254132486 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 8696436649793001174, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+  m_PrefabInstance: {fileID: 8571113355176204055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1402912358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1402912359}
+  m_Layer: 0
+  m_Name: TemporaryStartingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1402912359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402912358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.91, y: 2.038, z: -5.94}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1489398248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dyingObject: {fileID: 8571113355176204056}
-  timeToRespawn: 4
+  timeToRespawn: 2
 --- !u!1 &2075791337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2566842326586142831, guid: 2055be167d23dc54f8312c0ee9dbc887, type: 3}
@@ -1134,6 +1220,10 @@ PrefabInstance:
       propertyPath: State
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5836584388591849422, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: CharacterController
+      value: 
+      objectReference: {fileID: 1254132486}
     - target: {fileID: 6007595202061142466, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
