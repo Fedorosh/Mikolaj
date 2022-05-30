@@ -13,7 +13,6 @@ namespace Fedorosh
         private CharacterController controller;
         private Animator animator;
 
-
         public float speed = 12f;
         public float rotateSpeed = 200f;
         public float gravity = -9.81f;
@@ -25,9 +24,9 @@ namespace Fedorosh
         private const string respawnTrigger = "Respawn";
 
         [SerializeField] private Text debugText;
-        [SerializeField] private Joystick joystick;
-        [SerializeField] private InputMiddleware input;
+        [SerializeField] Joystick joystick;
 
+        private InputMiddleware input;
 
         public Transform groundCheck;
         public float groundDistance = 0.4f;
@@ -44,6 +43,7 @@ namespace Fedorosh
             animator = GetComponentInChildren<Animator>();
             DyingController.TriggerDieEvent.AddListener(Die);
             RespawningController.TriggerRespawnEvent.AddListener(Respawn);
+            input = new InputMiddleware(joystick, GetComponent<DyingObject>());
 #if !UNITY_ANDROID
             Cursor.lockState = CursorLockMode.Locked;
 #endif
@@ -67,8 +67,8 @@ namespace Fedorosh
             float z = input.GetAxis("Vertical");
             float x = input.GetAxis("Horizontal");
 #else
-        float z = joystick.Vertical;
-        float x = joystick.Horizontal;
+        float z = input.GetVerticalJoystick();
+        float x = input.GetHorizontalJoystick();
 #endif
 
             if (input.GetKey(KeyCode.Mouse1)) z = 1f;
@@ -83,7 +83,7 @@ namespace Fedorosh
 #if !UNITY_ANDROID
             if (input.GetButtonDown("Jump") && isGrounded)
 #else
-        if(GetTouch() && isGrounded)
+        if(input.GetTouch() && isGrounded)
 #endif
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -100,7 +100,7 @@ namespace Fedorosh
 #if !UNITY_ANDROID
             if (input.GetButtonDown("Jump") && !isGrounded && !isJumping)
 #else
-        if (GetTouch() && !isGrounded && !isJumping)
+        if (input.GetTouch() && !isGrounded && !isJumping)
 #endif
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -119,19 +119,6 @@ namespace Fedorosh
             animator.SetTrigger(respawnTrigger);
             dyingObject.CharacterController.enabled = true;
         }
-
-#if UNITY_ANDROID
-    private bool GetTouch()
-    {
-        if(Input.touchCount == 0) return false;
-
-        Touch touch = Input.GetTouch(Input.touchCount - 1);
-
-        Vector2 touchPos = touch.position;
-        int x = Screen.width / 2;
-        return touchPos.x >= x && touch.phase == TouchPhase.Ended;
-    }
-#endif
     }
 }
 
