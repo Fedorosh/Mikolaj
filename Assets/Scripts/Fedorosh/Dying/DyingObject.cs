@@ -23,7 +23,7 @@ namespace Fedorosh.Dying
         {
             if (lastCollidedCollider == hit.collider) return;
             lastCollidedCollider = hit.collider;
-            if(hit.collider.TryGetComponent(out Collidable collidable))
+            if (hit.collider.TryGetComponent(out Collidable collidable))
             {
                 collidable.InvokeCollidedEvent(this);
             }
