@@ -9,7 +9,7 @@ namespace Fedorosh
         [SerializeField] private Transform playerTransform;
         [SerializeField] private Transform transformToFollow;
         public float smoothTime = 10f;
-        [SerializeField] private float rotationSpeed = 10f;
+        //[SerializeField] private float rotationSpeed = 10f;
 
         private Vector3 startingCameraPosition = Vector3.zero;
 
