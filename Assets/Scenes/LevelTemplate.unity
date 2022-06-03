@@ -280,7 +280,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 470628080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c95a56bba6437141bc05d0b683b32d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 23e3088ddf5f11f4ab4aa2db7f3c81ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &470628082
@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 727590618}
   - component: {fileID: 727590619}
   - component: {fileID: 727590620}
+  - component: {fileID: 727590621}
   m_Layer: 0
   m_Name: DyingController
   m_TagString: Untagged
@@ -423,6 +424,7 @@ MonoBehaviour:
   dieTriggers:
   - {fileID: 727590619}
   - {fileID: 727590620}
+  - {fileID: 727590621}
 --- !u!114 &727590619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,6 +449,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20e0a4485c33ef9479a3e239ba05804c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dyingObject: {fileID: 8571113355176204056}
+--- !u!114 &727590621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727590616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48627c8e3bd39a94ab15a1bace6371cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dyingObject: {fileID: 8571113355176204056}

@@ -10,11 +10,7 @@ namespace Fedorosh.Collisions
 {
     public class Collectable : Collidable
     {
-        private void Start()
-        {
-            CollidedEvent.AddListener(OnCollided);
-        }
-        private void OnCollided(DyingObject collision)
+        protected override void OnCollided(DyingObject collision)
         {
             Destroy(gameObject);
             //UnityEngine.Debug.Log("Collided");

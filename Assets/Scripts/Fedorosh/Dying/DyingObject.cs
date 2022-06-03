@@ -19,6 +19,8 @@ namespace Fedorosh.Dying
 
         private Collider lastCollidedCollider = null;
 
+        public Enemy LastEnemyInfo { get; set; } = null;
+
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
             if (lastCollidedCollider == hit.collider) return;

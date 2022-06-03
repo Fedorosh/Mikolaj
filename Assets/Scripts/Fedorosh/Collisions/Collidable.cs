@@ -11,10 +11,17 @@ namespace Fedorosh.Collisions
     {
         protected TriggerCollidedEvent CollidedEvent = new TriggerCollidedEvent();
 
+        private void Start()
+        {
+            CollidedEvent.AddListener(OnCollided);
+        }
+
         public void InvokeCollidedEvent(DyingObject dyingObject)
         {
             CollidedEvent?.Invoke(dyingObject);
         }
+
+        protected abstract void OnCollided(DyingObject dyingObject);
     }
 }
 
