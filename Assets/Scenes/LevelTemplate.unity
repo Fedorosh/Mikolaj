@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.3
     agentHeight: 1
     agentSlope: 0
-    agentClimb: 0.4
+    agentClimb: 0.01
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -621,6 +621,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2566842326586142831, guid: 2055be167d23dc54f8312c0ee9dbc887, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5104740697117899685, guid: 2055be167d23dc54f8312c0ee9dbc887, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -806,6 +810,10 @@ PrefabInstance:
     - target: {fileID: 1862107410815556, guid: 4a2995c2dfa5ee447bb99406df3fd57e, type: 3}
       propertyPath: m_Name
       value: troll (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862107410815556, guid: 4a2995c2dfa5ee447bb99406df3fd57e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003651060629982, guid: 4a2995c2dfa5ee447bb99406df3fd57e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2655,6 +2663,10 @@ PrefabInstance:
     - target: {fileID: 2566842326586142831, guid: 6b9d2426c714dba47874da34f84b4021, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566842326586142831, guid: 6b9d2426c714dba47874da34f84b4021, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5104740697117899685, guid: 6b9d2426c714dba47874da34f84b4021, type: 3}
       propertyPath: m_Materials.Array.data[0]
