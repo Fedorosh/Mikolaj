@@ -21,16 +21,13 @@ namespace Fedorosh.Dying
 
         public Enemy LastEnemyInfo { get; set; } = null;
 
-        private void OnControllerColliderHit(ControllerColliderHit hit)
+        private void OnTriggerEnter(Collider hit)
         {
-            if (lastCollidedCollider == hit.collider) return;
-            lastCollidedCollider = hit.collider;
-            if (hit.collider.TryGetComponent(out Collidable collidable))
+            if (hit.TryGetComponent(out Collidable collidable))
             {
                 collidable.InvokeCollidedEvent(this);
             }
         }
-
     }
 
 }
