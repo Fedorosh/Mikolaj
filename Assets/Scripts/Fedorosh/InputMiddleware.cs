@@ -34,6 +34,7 @@ namespace Fedorosh
         public float GetHorizontalJoystick()
         {
             if(!VerifyInput()) return 0f;
+            if (Mathf.Abs(joystick.Horizontal) < 0.3f) return 0f;
             return joystick.Horizontal;
         }
 

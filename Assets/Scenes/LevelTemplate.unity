@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0047575394, g: 0.05039734, b: 0.1705813, a: 1}
+  m_IndirectSpecularColor: {r: 0.0047779223, g: 0.05062496, b: 0.16990556, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -440,6 +440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebugUI
       objectReference: {fileID: 0}
+    - target: {fileID: 3914386295907581364, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3914386295907581368, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -528,6 +532,10 @@ PrefabInstance:
       propertyPath: cameraScript
       value: 
       objectReference: {fileID: 457326639}
+    - target: {fileID: 5228494719623657656, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+      propertyPath: stepMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
 --- !u!1001 &799815195
@@ -2423,6 +2431,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3528443555665389704, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.41825005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3528443555665389704, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.4015556
+      objectReference: {fileID: 0}
+    - target: {fileID: 3528443555665389704, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -2.8660278
+      objectReference: {fileID: 0}
+    - target: {fileID: 3528443555665389704, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2.6268005
+      objectReference: {fileID: 0}
     - target: {fileID: 4620681373799008989, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2513,7 +2537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4620681373799008993, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
@@ -4107,7 +4131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8571113354970642030, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: smoothTime
-      value: 70
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8571113354970642030, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: positionSpeed
@@ -4143,7 +4167,7 @@ PrefabInstance:
       objectReference: {fileID: 2044387647}
     - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: rotateSpeed
-      value: 500
+      value: 325
       objectReference: {fileID: 0}
     - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: groundDistance
