@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0047779223, g: 0.05062496, b: 0.16990556, a: 1}
+  m_IndirectSpecularColor: {r: 0.0047575394, g: 0.05039734, b: 0.1705813, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4130,6 +4130,10 @@ PrefabInstance:
       value: PlayerWithCamera
       objectReference: {fileID: 0}
     - target: {fileID: 8571113354970642030, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: pcSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 0ee3d1f3b958aae4a9eac7d16ac1ab6c, type: 2}
+    - target: {fileID: 8571113354970642030, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: smoothTime
       value: 15
       objectReference: {fileID: 0}
@@ -4145,6 +4149,10 @@ PrefabInstance:
       propertyPath: smoothPosition
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642030, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: androidSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 1242538a60d0a9f4bbf845df9202b6ff, type: 2}
     - target: {fileID: 8571113354970642030, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: playerTransform
       value: 
@@ -4166,13 +4174,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2044387647}
     - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: pcSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 0ee3d1f3b958aae4a9eac7d16ac1ab6c, type: 2}
+    - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: rotateSpeed
-      value: 325
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: groundDistance
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: androidSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 1242538a60d0a9f4bbf845df9202b6ff, type: 2}
     - target: {fileID: 8696436649793001174, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: m_Height
       value: 1.8

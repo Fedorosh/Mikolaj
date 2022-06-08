@@ -26,6 +26,9 @@ namespace Fedorosh
         [SerializeField] private Text debugText;
         [SerializeField] Joystick joystick;
 
+        [SerializeField] private PlatformSettingsObject androidSettings;
+        [SerializeField] private PlatformSettingsObject pcSettings;
+
         private InputMiddleware input;
 
         public Transform groundCheck;
@@ -46,9 +49,11 @@ namespace Fedorosh
             input = new InputMiddleware(joystick, GetComponent<DyingObject>());
 #if !UNITY_ANDROID
             Cursor.lockState = CursorLockMode.Locked;
+            rotateSpeed = pcSettings.turnSensitivity;
 #endif
 #if UNITY_ANDROID
         androidUI.SetActive(true);
+        rotateSpeed = androidSettings.turnSensitivity;
 #endif
         }
 
