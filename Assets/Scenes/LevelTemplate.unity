@@ -4205,6 +4205,10 @@ PrefabInstance:
       propertyPath: androidSettings
       value: 
       objectReference: {fileID: 11400000, guid: 1242538a60d0a9f4bbf845df9202b6ff, type: 2}
+    - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: secondJumpHeight
+      value: 1.4
+      objectReference: {fileID: 0}
     - target: {fileID: 8696436649793001174, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: m_Height
       value: 1.8

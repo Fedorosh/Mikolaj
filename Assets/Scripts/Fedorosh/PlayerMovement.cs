@@ -17,6 +17,7 @@ namespace Fedorosh
         public float rotateSpeed = 200f;
         public float gravity = -9.81f;
         public float jumpHeight = 3.0f;
+        public float secondJumpHeight = 1.5f;
 
         private const string movingBool = "isMoving";
         private const string jumpingTrigger = "Jump";
@@ -112,7 +113,7 @@ namespace Fedorosh
         if (input.GetTouch() && !isGrounded && !isJumping)
 #endif
             {
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                velocity.y = Mathf.Sqrt(secondJumpHeight * -2f * gravity);
                 animator.SetTrigger(jumpingTrigger);
                 isJumping = true;
             }
