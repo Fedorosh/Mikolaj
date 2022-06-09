@@ -424,6 +424,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 371617600, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+      propertyPath: m_Text
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 598320260, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+      propertyPath: valueStep
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1029551837, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.6689987
@@ -434,7 +442,7 @@ PrefabInstance:
       objectReference: {fileID: 639335478}
     - target: {fileID: 2722051767543700260, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: stepMultiplier
-      value: 25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3914386295907581364, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: m_Name
@@ -4166,6 +4174,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: speed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 953258759}
@@ -4173,6 +4185,10 @@ PrefabInstance:
       propertyPath: androidUI
       value: 
       objectReference: {fileID: 2044387647}
+    - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: jumpHeight
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: pcSettings
       value: 

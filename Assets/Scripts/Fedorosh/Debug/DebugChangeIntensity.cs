@@ -18,15 +18,15 @@ namespace Fedorosh.Debug
             if (!int.TryParse(valueText.text, out valueInt)) return;
             cameraScript.smoothTime = valueInt;
         }
-        public override void OnValueChanged(int value)
+        public override void OnValueChanged(float value)
         {
-            int valueInt;
-            if (!int.TryParse(valueText.text, out valueInt)) return;
-            valueInt += value * stepMultiplier;
-            if (valueInt <= 0) valueInt = 1;
-            if (valueInt > maxValue) valueInt = maxValue;
-            cameraScript.smoothTime = valueInt;
-            valueText.text = valueInt.ToString();
+            float valuefloat;
+            if (!float.TryParse(valueText.text, out valuefloat)) return;
+            valuefloat += value * stepMultiplier;
+            if (valuefloat <= 0) valuefloat = 1;
+            if (valuefloat > maxValue) valuefloat = maxValue;
+            cameraScript.smoothTime = valuefloat;
+            valueText.text = valuefloat.ToString();
         }
     }
 }

@@ -13,6 +13,8 @@ namespace Fedorosh.Debug
         public IncreaseDecreaseButton increaseDecreaseButtons;
         public Button standardButton;
 
+        public float valueStep = 1f;
+
         void Start()
         {
             debugAction = GetComponent<DebugAction>();
@@ -21,8 +23,8 @@ namespace Fedorosh.Debug
 
             if (increaseDecreaseButtons.increaseButton == null || increaseDecreaseButtons.decreaseButton == null) return;
 
-            increaseDecreaseButtons.increaseButton.onClick.AddListener(() => debugAction.OnValueChanged(1));
-            increaseDecreaseButtons.decreaseButton.onClick.AddListener(() => debugAction.OnValueChanged(-1));
+            increaseDecreaseButtons.increaseButton.onClick.AddListener(() => debugAction.OnValueChanged(valueStep));
+            increaseDecreaseButtons.decreaseButton.onClick.AddListener(() => debugAction.OnValueChanged(-valueStep));
 
         }
 

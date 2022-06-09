@@ -18,15 +18,15 @@ namespace Fedorosh.Debug
             playerScript.rotateSpeed = valueInt;
         }
 
-        public override void OnValueChanged(int value)
+        public override void OnValueChanged(float value)
         {
-            int valueInt;
-            if (!int.TryParse(valueText.text, out valueInt)) return;
-            valueInt += value * stepMultiplier;
-            if (valueInt <= 0) valueInt = 1;
-            if (valueInt > maxValue) valueInt = maxValue;
-            playerScript.rotateSpeed = valueInt;
-            valueText.text = valueInt.ToString();
+            float valueFloat;
+            if (!float.TryParse(valueText.text, out valueFloat)) return;
+            valueFloat += value * stepMultiplier;
+            if (valueFloat <= 0) valueFloat = 1;
+            if (valueFloat > maxValue) valueFloat = maxValue;
+            playerScript.speed = valueFloat;
+            valueText.text = valueFloat.ToString();
         }
     }
 }

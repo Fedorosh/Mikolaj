@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSensitivity: 400
   cameraSmoothTime: 20
+  jumpHeight: 1.8
+  walkSpeed: 2.5

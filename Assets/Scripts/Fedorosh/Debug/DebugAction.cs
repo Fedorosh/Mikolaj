@@ -8,10 +8,10 @@ namespace Fedorosh.Debug
     {
         protected virtual void Start() { }
         protected virtual void Update() { }
-        public virtual void OnValueChanged(int value)
+        public virtual void OnButtonClicked()
         {
         }
-        public virtual void OnButtonClicked()
+        public virtual void OnValueChanged(float value)
         {
         }
     }

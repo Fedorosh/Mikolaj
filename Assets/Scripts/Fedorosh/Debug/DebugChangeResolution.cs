@@ -15,9 +15,10 @@ namespace Fedorosh.Debug
             resIndex = Array.IndexOf(resolutions,Screen.currentResolution);
         }
 
-        public override void OnValueChanged(int value)
+        public override void OnValueChanged(float value)
         {
-            resIndex += value;
+            int valueInt = (int)value;
+            resIndex += valueInt;
             if (resIndex >= resolutions.Length) resIndex = 0;
             if (resIndex < 0) resIndex = resolutions.Length - 1;
             Screen.SetResolution(resolutions[resIndex].width, resolutions[resIndex].height, true);

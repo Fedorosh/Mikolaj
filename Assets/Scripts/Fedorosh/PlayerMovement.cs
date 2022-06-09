@@ -50,10 +50,14 @@ namespace Fedorosh
 #if !UNITY_ANDROID
             Cursor.lockState = CursorLockMode.Locked;
             rotateSpeed = pcSettings.turnSensitivity;
+            speed = pcSettings.walkSpeed;
+            jumpHeight = pcSettings.jumpHeight;
 #endif
 #if UNITY_ANDROID
         androidUI.SetActive(true);
         rotateSpeed = androidSettings.turnSensitivity;
+        speed = androidSettings.walkSpeed;
+        jumpHeight = androidSettings.jumpHeight;
 #endif
         }
 

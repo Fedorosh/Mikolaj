@@ -7,4 +7,6 @@ public class PlatformSettingsObject : ScriptableObject
 {
     public float turnSensitivity;
     public float cameraSmoothTime;
+    public float jumpHeight;
+    public float walkSpeed;
 }
