@@ -4178,6 +4178,10 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: gravity
+      value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 953258759}
