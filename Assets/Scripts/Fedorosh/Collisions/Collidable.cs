@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Fedorosh.Collisions
 {
-    [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(CustomColliderTrigger))]
     public abstract class Collidable : MonoBehaviour
     {
         protected TriggerCollidedEvent CollidedEvent = new TriggerCollidedEvent();

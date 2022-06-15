@@ -23,8 +23,9 @@ namespace Fedorosh.Dying
 
         private void OnTriggerEnter(Collider hit)
         {
-            if (hit.TryGetComponent(out Collidable collidable))
+            if (hit.TryGetComponent(out CustomTrigger trigger))
             {
+                Collidable collidable = trigger._customColliderTrigger.GetComponent<Collidable>();
                 collidable.InvokeCollidedEvent(this);
             }
         }
