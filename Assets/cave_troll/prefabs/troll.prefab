@@ -351,7 +351,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138784004510734}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 36.909775
   m_Height: 133.14008
@@ -1049,7 +1049,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307677309668886}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 66.90318, y: 72.52286, z: 88.49012}
@@ -1127,7 +1127,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338123500499038}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 20.48479
   m_Height: 80.72345
@@ -1326,7 +1326,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401201172605550}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 32.37188
@@ -1401,7 +1401,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431145603400902}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 55.954132, y: 94.669754, z: 89.861145}
@@ -1801,7 +1801,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490594028249854}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 29.557402
   m_Height: 88.58435
@@ -1939,7 +1939,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526269257250404}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 46.50821, y: 96.763725, z: 88.49012}
@@ -2159,7 +2159,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530411694781616}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 20.401527
   m_Height: 92.74018
@@ -2329,7 +2329,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587485405965768}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 20.48479
   m_Height: 80.72345
@@ -2533,7 +2533,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656633672578282}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 30.470715
   m_Height: 94.47653
@@ -2579,7 +2579,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662086792271580}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 20.401527
   m_Height: 92.74018
@@ -2686,7 +2686,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682739067163064}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 29.557402
   m_Height: 82.4764
@@ -3304,7 +3304,7 @@ Transform:
   m_GameObject: {fileID: 1862107410815556}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.35, y: -3.4737387e-17, z: 0.73}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4629551603989802}
   - {fileID: 4994521836820776}
@@ -3401,7 +3401,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1630d4b2024f9664c8923977a9e12c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliders: []
+  colliders:
+  - {fileID: 1467034567}
+  - {fileID: 1467034566}
+  - {fileID: 1467034565}
+  - {fileID: 1467034564}
+  - {fileID: 1467034563}
+  - {fileID: 1467034562}
+  - {fileID: 1467034568}
+  - {fileID: 1467034569}
+  - {fileID: 1467034570}
+  - {fileID: 1467034551}
+  - {fileID: 1467034550}
+  - {fileID: 1467034549}
+  - {fileID: 1467034548}
+  - {fileID: 1467034571}
 --- !u!1 &1868828153997032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3472,7 +3486,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870633043259304}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 30.470715
   m_Height: 94.47653
@@ -3967,7 +3981,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996441674074862}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 33.455715
   m_Height: 136.39742
