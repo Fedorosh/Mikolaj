@@ -13,7 +13,6 @@ namespace Fedorosh.Collisions
         protected override void OnCollided(DyingObject collision)
         {
             Destroy(gameObject);
-            //UnityEngine.Debug.Log("Collided");
         }
     }
 }
