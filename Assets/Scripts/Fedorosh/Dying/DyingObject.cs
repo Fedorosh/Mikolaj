@@ -14,6 +14,8 @@ namespace Fedorosh.Dying
     {
         public DyingObjectState State;
 
+        public int ObjectHP = 3;
+
         [Header("Optional references")]
         public CharacterController CharacterController;
 

@@ -20,6 +20,7 @@ namespace Fedorosh.Respawning
         {
             dyingObjectRef = null;
             if(!CheckRespawningObjectState()) return false;
+            if (dyingObject.ObjectHP <= 0) return false;
             timeLeftToRespawn -= Time.deltaTime;
             if(timeLeftToRespawn <= 0f)
             {
