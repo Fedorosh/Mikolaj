@@ -9,13 +9,13 @@ namespace Fedorosh.Moving
     [RequireComponent(typeof(NavMeshAgent))]
     public class MovingObject : MonoBehaviour
     {
-        [SerializeField] private List<Transform> movingTransforms = new List<Transform>();
+        [SerializeField] private TransformPath transformPath;
         private NavMeshAgent agent;
         private int index = 0;
         private void Start()
         {
             agent = GetComponent<NavMeshAgent>();
-            agent.SetDestination(movingTransforms[0].position);
+            agent.SetDestination(transformPath.movingTransforms[0].position);
         }
 
         private void Update()
@@ -31,9 +31,9 @@ namespace Fedorosh.Moving
             {
                 index++;
             }
-            if (index == movingTransforms.Count) index = 0;
-            if (agent.destination == movingTransforms[index].position) return;
-            agent.destination = movingTransforms[index].position;
+            if (index == transformPath.movingTransforms.Count) index = 0;
+            if (agent.destination == transformPath.movingTransforms[index].position) return;
+            agent.destination = transformPath.movingTransforms[index].position;
         }
     }
 }
