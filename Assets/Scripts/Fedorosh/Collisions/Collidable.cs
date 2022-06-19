@@ -11,7 +11,7 @@ namespace Fedorosh.Collisions
     {
         protected TriggerCollidedEvent CollidedEvent = new TriggerCollidedEvent();
 
-        private void Start()
+        protected virtual void Start()
         {
             CollidedEvent.AddListener(OnCollided);
         }
