@@ -21,7 +21,7 @@ namespace Fedorosh
 #if !UNITY_ANDROID
             smoothTime = pcSettings.cameraSmoothTime;
 #else
-            smoothTime = androidSetting.cameraSmoothTime;
+            smoothTime = androidSettings.cameraSmoothTime;
 #endif
             //startingCameraPosition = transform.position - transformToFollow.position;
         }
