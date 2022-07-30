@@ -45,8 +45,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51054525, y: 1, z: 0.49094987}
-  m_Center: {x: 0.00020051003, y: 0, z: -0.0006104708}
+  m_Size: {x: 0.9331217, y: 1, z: 0.91287374}
+  m_Center: {x: -0.018760204, y: 0, z: 0.05164337}
 --- !u!114 &3940470901925372064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +84,6 @@ GameObject:
   - component: {fileID: 1306824435590141107}
   - component: {fileID: 2072813015295040474}
   - component: {fileID: 215736307357514983}
-  - component: {fileID: 8154170136291082813}
   - component: {fileID: 857646481}
   m_Layer: 0
   m_Name: Cylinder
@@ -156,20 +155,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8154170136291082813
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7480490670646719899}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!95 &857646481
 Animator:
   serializedVersion: 3

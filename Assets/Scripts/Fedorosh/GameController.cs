@@ -5,13 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Fedorosh
 {
     public class GameController : MonoBehaviourSingleton<GameController>
     {
-        private int maxPresents;
+        private int maxPresents = 1;
         private int presentsCollected;
+
+        [SerializeField] private PlayerMovement playerMovement;
+        [SerializeField] private WinInfo winUI;
 
         private AudioController audioController;
 
@@ -24,6 +28,15 @@ namespace Fedorosh
         {
             audioController = GetComponent<AudioController>();
         }
+
+        public void ShowWinScreen()
+        {
+            playerMovement.enabled = false;
+            winUI.Score = presentsCollected;
+            winUI.MaxScore = maxPresents;
+            winUI.gameObject.SetActive(true);
+        }
+
 
         public void IncrementCollectedPresents(int i)
         {
