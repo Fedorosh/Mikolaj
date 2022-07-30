@@ -78,8 +78,8 @@ namespace Fedorosh
             int x = Screen.width / 2;
             if (touch.position.x < x) return false;
 
-            return touch.phase == TouchPhase.Stationary ||
-                touch.phase == TouchPhase.Moved;
+            return touch.phase == TouchPhase.Stationary
+                || touch.phase == TouchPhase.Moved;
         }
 
         public bool GetKey(KeyCode key)

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d84bd47960ca243ac687724fe16cd4, type: 3}
   m_Name: AndroidPlatformSettings
   m_EditorClassIdentifier: 
-  turnSensitivity: 325
+  turnSensitivity: 140
   cameraSmoothTime: 15
   jumpHeight: 1.8
   walkSpeed: 2.5

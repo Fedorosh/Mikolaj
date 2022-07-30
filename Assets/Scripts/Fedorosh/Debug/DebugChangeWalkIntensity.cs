@@ -25,7 +25,7 @@ namespace Fedorosh.Debug
             valueFloat += value * stepMultiplier;
             if (valueFloat <= 0) valueFloat = 1;
             if (valueFloat > maxValue) valueFloat = maxValue;
-            playerScript.speed = valueFloat;
+            playerScript.rotateSpeed = valueFloat;
             valueText.text = valueFloat.ToString();
         }
     }

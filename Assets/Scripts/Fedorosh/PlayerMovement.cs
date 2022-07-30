@@ -30,6 +30,8 @@ namespace Fedorosh
         [SerializeField] private PlatformSettingsObject androidSettings;
         [SerializeField] private PlatformSettingsObject pcSettings;
 
+        [SerializeField] private Button jumpButton;
+
         private InputMiddleware input;
 
         public Transform groundCheck;
@@ -40,6 +42,9 @@ namespace Fedorosh
         Vector3 velocity;
         bool isGrounded;
         bool isJumping = false;
+#if UNITY_ANDROID
+        bool jumpButtonClicked = false;
+#endif
 
         private void Start()
         {
@@ -59,6 +64,7 @@ namespace Fedorosh
         rotateSpeed = androidSettings.turnSensitivity;
         speed = androidSettings.walkSpeed;
         jumpHeight = androidSettings.jumpHeight;
+        jumpButton.onClick.AddListener(AndroidJump);
 #endif
         }
 
@@ -78,7 +84,9 @@ namespace Fedorosh
             float x = input.GetAxis("Horizontal");
 #else
         float z = input.GetVerticalJoystick();
-        float x = input.GetHorizontalJoystick();
+        float x = 0f;
+            if (input.GetTouch())
+                x = input.GetAxis("Horizontal");
 #endif
 
             if (input.GetKey(KeyCode.Mouse1)) z = 1f;
@@ -93,9 +101,12 @@ namespace Fedorosh
 #if !UNITY_ANDROID
             if (input.GetButtonDown("Jump") && isGrounded)
 #else
-        if(input.GetTouchUp() && isGrounded)
+            if (jumpButtonClicked && isGrounded)
 #endif
             {
+#if UNITY_ANDROID
+                jumpButtonClicked = false;
+#endif
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
                 animator.SetTrigger(jumpingTrigger);
             }
@@ -110,14 +121,26 @@ namespace Fedorosh
 #if !UNITY_ANDROID
             if (input.GetButtonDown("Jump") && !isGrounded && !isJumping)
 #else
-        if (input.GetTouchUp() && !isGrounded && !isJumping)
+            if (jumpButtonClicked && !isGrounded && !isJumping)
 #endif
             {
+#if UNITY_ANDROID
+                jumpButtonClicked = false;
+#endif
                 velocity.y = Mathf.Sqrt(secondJumpHeight * -2f * gravity);
                 animator.SetTrigger(jumpingTrigger);
                 isJumping = true;
             }
+#if UNITY_ANDROID
+            else jumpButtonClicked = false;
+#endif
         }
+#if UNITY_ANDROID
+        private void AndroidJump()
+        {
+            jumpButtonClicked = true;
+        }
+#endif
 
         private void Die(DyingObject dyingObject)
         {
