@@ -44,7 +44,7 @@ namespace Fedorosh
             return joystick.Vertical;
         }
 
-        public bool GetTouch()
+        public bool GetTouchUp()
         {
             if (!VerifyInput()) return false;
             if (Input.touchCount == 0) return false;
@@ -54,6 +54,32 @@ namespace Fedorosh
             Vector2 touchPos = touch.position;
             int x = Screen.width / 2;
             return touchPos.x >= x && touch.phase == TouchPhase.Ended;
+        }
+
+        public bool GetTouchDown()
+        {
+            if (!VerifyInput()) return false;
+            if (Input.touchCount == 0) return false;
+
+            Touch touch = Input.GetTouch(Input.touchCount - 1);
+
+            Vector2 touchPos = touch.position;
+            int x = Screen.width / 2;
+            return touchPos.x >= x && touch.phase == TouchPhase.Began;
+        }
+
+        public bool GetTouch()
+        {
+            if (!VerifyInput()) return false;
+            if (Input.touchCount == 0) return false;
+
+            Touch touch = Input.GetTouch(Input.touchCount - 1);
+
+            int x = Screen.width / 2;
+            if (touch.position.x < x) return false;
+
+            return touch.phase == TouchPhase.Stationary ||
+                touch.phase == TouchPhase.Moved;
         }
 
         public bool GetKey(KeyCode key)

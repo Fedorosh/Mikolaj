@@ -93,7 +93,7 @@ namespace Fedorosh
 #if !UNITY_ANDROID
             if (input.GetButtonDown("Jump") && isGrounded)
 #else
-        if(input.GetTouch() && isGrounded)
+        if(input.GetTouchUp() && isGrounded)
 #endif
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -110,7 +110,7 @@ namespace Fedorosh
 #if !UNITY_ANDROID
             if (input.GetButtonDown("Jump") && !isGrounded && !isJumping)
 #else
-        if (input.GetTouch() && !isGrounded && !isJumping)
+        if (input.GetTouchUp() && !isGrounded && !isJumping)
 #endif
             {
                 velocity.y = Mathf.Sqrt(secondJumpHeight * -2f * gravity);

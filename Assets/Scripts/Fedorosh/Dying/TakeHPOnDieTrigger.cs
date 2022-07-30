@@ -1,10 +1,11 @@
+using Fedorosh.HPFolder;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Fedorosh.Dying
 {
-    public class HPController : MonoBehaviour
+    public class TakeHPOnDieTrigger : MonoBehaviour
     {
         private void Start()
         {
@@ -13,6 +14,7 @@ namespace Fedorosh.Dying
         private void TakeHPOnDie(DyingObject dyingObject)
         {
             dyingObject.ObjectHP--;
+            HPController.InvokeHPChangedTrigger(dyingObject.ObjectHP);
         }
     }
 }
