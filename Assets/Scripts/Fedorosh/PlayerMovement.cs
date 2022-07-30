@@ -146,6 +146,7 @@ namespace Fedorosh
         {
             animator.SetTrigger(dyingTrigger);
             dyingObject.CharacterController.enabled = false;
+            GameController.AudioController.PlayDeathSound();
         }
         private void Respawn(DyingObject dyingObject)
         {

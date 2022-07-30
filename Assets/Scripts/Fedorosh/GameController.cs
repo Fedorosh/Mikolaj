@@ -13,9 +13,17 @@ namespace Fedorosh
         private int maxPresents;
         private int presentsCollected;
 
+        private AudioController audioController;
+
         public static PresentCollectedEvent PresentCollectedEvent = new PresentCollectedEvent();
 
         public int PresentsCollected => presentsCollected;
+        public static AudioController AudioController => Instance.audioController;
+
+        private void Start()
+        {
+            audioController = GetComponent<AudioController>();
+        }
 
         public void IncrementCollectedPresents(int i)
         {
