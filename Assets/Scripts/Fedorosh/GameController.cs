@@ -11,7 +11,7 @@ namespace Fedorosh
 {
     public class GameController : MonoBehaviourSingleton<GameController>
     {
-        private int maxPresents = 1;
+        [SerializeField] private int maxPresents = 1;
         private int presentsCollected;
 
         [SerializeField] private PlayerMovement playerMovement;
