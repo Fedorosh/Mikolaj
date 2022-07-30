@@ -3930,6 +3930,8 @@ MonoBehaviour:
   playerSource: {fileID: 825588364}
   playerClips:
   - {fileID: 8300000, guid: bd00f32d552b5094fb03e75cff65ff69, type: 3}
+  - {fileID: 8300000, guid: bd00f32d552b5094fb03e75cff65ff69, type: 3}
+  - {fileID: 8300000, guid: f6157f1d5a87e4a499b646dc5d43532f, type: 3}
 --- !u!1 &1751947321
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,6 +35,7 @@ namespace Fedorosh
             winUI.Score = presentsCollected;
             winUI.MaxScore = maxPresents;
             winUI.gameObject.SetActive(true);
+            audioController.PlayWinSound();
         }
 
 

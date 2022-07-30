@@ -25,4 +25,9 @@ public class AudioController : MonoBehaviour
         PlayPlayerSound(playerClips[1]);
     }
 
+    public void PlayWinSound()
+    {
+        PlayPlayerSound(playerClips[2]);
+    }
+
 }
