@@ -25,6 +25,8 @@ namespace Fedorosh
             return true;
         }
 
+        public bool CanUseJump => VerifyInput();
+
         public float GetAxis(string axis)
         {
             if (!VerifyInput()) return 0f;

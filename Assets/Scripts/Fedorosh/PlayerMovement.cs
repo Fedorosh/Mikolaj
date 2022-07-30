@@ -138,6 +138,7 @@ namespace Fedorosh
 #if UNITY_ANDROID
         private void AndroidJump()
         {
+            if(input.CanUseJump)
             jumpButtonClicked = true;
         }
 #endif
