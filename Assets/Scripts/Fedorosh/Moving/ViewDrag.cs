@@ -12,27 +12,29 @@ public class ViewDrag : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            hit_position = Input.mousePosition;
-            camera_position = transform.position;
-
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    hit_position = Input.mousePosition;
+        //    camera_position = transform.position;
+        //}
         if (Input.GetMouseButton(0))
         {
-            current_position = Input.mousePosition;
-            LeftMouseDrag();
+            float x = Input.GetAxis("Horizontal");
+            transform.Rotate(Vector3.up * x * Time.deltaTime * speed);
+            //LeftMouseDrag();
         }
     }
 
     void LeftMouseDrag()
     {
         float value = Vector3.Distance(current_position,hit_position);
+
+        transform.Rotate(Vector3.up * value * Time.deltaTime);
 
         Debug.Log(value);
 
