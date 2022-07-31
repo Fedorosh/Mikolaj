@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Fedorosh.Collisions.Collectables
 {
@@ -15,6 +16,7 @@ namespace Fedorosh.Collisions.Collectables
             if(!collidedOnce)
             {
                 GameController.Instance.ShowWinScreen();
+                Cursor.lockState = CursorLockMode.None;
                 collidedOnce = true;
             }
         }
