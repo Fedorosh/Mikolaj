@@ -19,7 +19,7 @@ namespace Fedorosh
         public float jumpHeight = 3.0f;
         public float secondJumpHeight = 1.5f;
 
-        private const string movingBool = "isMoving";
+        private const string movingBool = "Walk";
         private const string jumpingTrigger = "Jump";
         private const string dyingTrigger = "Die";
         private const string respawnTrigger = "Respawn";
@@ -92,7 +92,7 @@ namespace Fedorosh
             if (input.GetKey(KeyCode.Mouse1)) z = 1f;
 
             if (animator != null)
-                animator.SetBool(movingBool, z != 0f);
+                animator.SetFloat(movingBool, Mathf.Abs(z));
 
             Vector3 move = transform.forward * z;
 
