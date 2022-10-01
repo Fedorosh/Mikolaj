@@ -58,6 +58,15 @@ namespace Fedorosh
             return touchPos.x >= x && touch.phase == TouchPhase.Ended;
         }
 
+        public bool GetTouchUpAnywhere()
+        {
+            if (!VerifyInput()) return false;
+            if (Input.touchCount == 0) return false;
+
+            Touch touch = Input.GetTouch(Input.touchCount - 1);
+            return touch.phase == TouchPhase.Ended;
+        }
+
         public bool GetTouchDown()
         {
             if (!VerifyInput()) return false;
@@ -67,7 +76,8 @@ namespace Fedorosh
 
             Vector2 touchPos = touch.position;
             int x = Screen.width / 2;
-            return touchPos.x >= x && touch.phase == TouchPhase.Began;
+            float y = Screen.height / 3.86f;
+            return touchPos.x >= x && touchPos.y >= y && touch.phase == TouchPhase.Began;
         }
 
         public bool GetTouch()

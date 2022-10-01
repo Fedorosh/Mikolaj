@@ -36,7 +36,7 @@ namespace Fedorosh
 
         [SerializeField] private Button jumpButton;
 
-        private InputMiddleware input;
+        public static InputMiddleware input;
 
         public Transform groundCheck;
         public float groundDistance = 0.4f;
