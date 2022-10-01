@@ -88,9 +88,7 @@ namespace Fedorosh
             float x = input.GetAxis("Horizontal");
 #else
         float z = input.GetVerticalJoystick();
-        float x = 0f;
-            if (input.GetTouch())
-                x = input.GetAxis("Horizontal");
+        float x = input.GetHorizontalJoystick();
 #endif
 
             if (input.GetKey(KeyCode.Mouse1)) z = 1f;
