@@ -14,7 +14,7 @@ namespace Fedorosh
         private Animator animator;
 
         public float speed = 12f;
-        public float rotateSpeed = 200f;
+        public float rotateSpeed = 400f;
         public float gravity = -9.81f;
         public float jumpHeight = 3.0f;
         public float secondJumpHeight = 1.5f;
@@ -23,6 +23,9 @@ namespace Fedorosh
         private const string jumpingTrigger = "Jump";
         private const string dyingTrigger = "Die";
         private const string respawnTrigger = "Respawn";
+
+        [SerializeField] private float turnSmoothTime = 0.1f;
+        float turnSmoothVelocity;
 
         [SerializeField] private Text debugText;
         [SerializeField] Joystick joystick;
@@ -91,13 +94,23 @@ namespace Fedorosh
 
             if (input.GetKey(KeyCode.Mouse1)) z = 1f;
 
+            Vector3 move = new Vector3(x, 0f, z);
+
             if (animator != null)
-                animator.SetFloat(movingBool, Mathf.Abs(z));
+                animator.SetFloat(movingBool, new Vector2(x,z).magnitude);
 
-            Vector3 move = transform.forward * z;
+            if (move.magnitude >= 0.1f)
+            {
+                float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle,
+                    ref turnSmoothVelocity, turnSmoothTime);
 
-            controller.Move(move * speed * Time.deltaTime);
-            transform.Rotate(Vector3.up * x * rotateSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+                controller.Move(move * speed * Time.deltaTime);
+            }
+
+
 #if !UNITY_ANDROID
             if (input.GetButtonDown("Jump") && isGrounded)
 #else
