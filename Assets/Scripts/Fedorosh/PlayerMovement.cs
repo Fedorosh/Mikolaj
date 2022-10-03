@@ -90,8 +90,9 @@ namespace Fedorosh
         float z = input.GetVerticalJoystick();
         float x = input.GetHorizontalJoystick();
 #endif
-
+#if !UNITY_ANDROID
             if (input.GetKey(KeyCode.Mouse1)) z = 1f;
+#endif
 
             Vector3 move = new Vector3(x, 0f, z);
 

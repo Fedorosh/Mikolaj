@@ -1279,6 +1279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef95429308a90d3479bb5bfe414500ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchField: {fileID: 2073608848}
 --- !u!114 &457326639 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8571113354970642030, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
@@ -4046,6 +4047,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2083732528}
     m_Modifications:
+    - target: {fileID: 238014145, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 371617600, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: m_Text
       value: 5
@@ -4072,7 +4077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3914386295907581364, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3914386295907581368, guid: 15632f61fb4aec24c94bba49748a1558, type: 3}
       propertyPath: m_Pivot.x
@@ -12430,6 +12435,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2083732528}
     m_Modifications:
+    - target: {fileID: 3993377181397621704, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993377181397621704, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -0.00024414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993377181397621704, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000061035
+      objectReference: {fileID: 0}
     - target: {fileID: 4620681373799008989, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -12517,6 +12534,10 @@ PrefabInstance:
     - target: {fileID: 4620681373799008993, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
       propertyPath: m_Name
       value: UIElements
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632802669973099634, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
@@ -12675,6 +12696,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec1b34df079938c47a5f538899b4da2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2073608848 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8055419835720084296, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
+  m_PrefabInstance: {fileID: 2044387646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9955f776ce90cc47b571ef80b43ff9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2073929984

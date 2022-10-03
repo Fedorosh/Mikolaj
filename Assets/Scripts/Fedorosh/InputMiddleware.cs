@@ -46,16 +46,13 @@ namespace Fedorosh
             return joystick.Vertical;
         }
 
-        public bool GetTouchUp()
+        public bool GetTouchUp(Touch touch)
         {
-            if (!VerifyInput()) return false;
-            if (Input.touchCount == 0) return false;
+            //if (!VerifyInput()) return false;
+            //if (Input.touchCount == 0) return false;
 
-            Touch touch = Input.GetTouch(Input.touchCount - 1);
-
-            Vector2 touchPos = touch.position;
-            int x = Screen.width / 2;
-            return touchPos.x >= x && touch.phase == TouchPhase.Ended;
+            //Touch touch = Input.GetTouch(Input.touchCount - 1);
+            return touch.phase == TouchPhase.Ended;
         }
 
         public bool GetTouchUpAnywhere()
@@ -67,17 +64,32 @@ namespace Fedorosh
             return touch.phase == TouchPhase.Ended;
         }
 
-        public bool GetTouchDown()
+        public bool GetTouchDown(out Touch touch)
         {
+            touch = default;
+
             if (!VerifyInput()) return false;
             if (Input.touchCount == 0) return false;
 
-            Touch touch = Input.GetTouch(Input.touchCount - 1);
+            touch = Input.GetTouch(Input.touchCount - 1);
 
             Vector2 touchPos = touch.position;
             int x = Screen.width / 2;
             float y = Screen.height / 3.86f;
-            return touchPos.x >= x && touchPos.y >= y && touch.phase == TouchPhase.Began;
+            return touch.phase == TouchPhase.Began;
+        }
+
+        public float GetTouchAxis(Touch touch, string axis)
+        {
+            switch(axis)
+            {
+                case "Horizontal":
+                    return touch.deltaPosition.x;
+                case "Vertical":
+                    return touch.deltaPosition.y;
+                default:
+                    return 0f;
+            }
         }
 
         public bool GetTouch()
