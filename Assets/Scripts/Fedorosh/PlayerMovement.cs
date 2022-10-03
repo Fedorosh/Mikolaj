@@ -94,10 +94,11 @@ namespace Fedorosh
             if (input.GetKey(KeyCode.Mouse1)) z = 1f;
 #endif
 
-            Vector3 move = new Vector3(x, 0f, z);
+            Vector3 move = new Vector3(x, 0f, z).normalized;
+            float magnitude = new Vector2(x, z).magnitude;
 
             if (animator != null)
-                animator.SetFloat(movingBool, new Vector2(x,z).magnitude);
+                animator.SetFloat(movingBool, magnitude);
 
             if (move.magnitude >= 0.1f)
             {
@@ -109,7 +110,7 @@ namespace Fedorosh
 
                 Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-                controller.Move(moveDir * speed * Time.deltaTime);
+                controller.Move(moveDir.normalized * magnitude * speed * Time.deltaTime);
             }
 
 
@@ -122,8 +123,9 @@ namespace Fedorosh
 #if UNITY_ANDROID
                 jumpButtonClicked = false;
 #endif
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * -9.82f);
                 animator.SetTrigger(jumpingTrigger);
+
             }
 
             velocity.y += gravity * Time.deltaTime;
@@ -142,7 +144,7 @@ namespace Fedorosh
 #if UNITY_ANDROID
                 jumpButtonClicked = false;
 #endif
-                velocity.y = Mathf.Sqrt(secondJumpHeight * -2f * gravity);
+                velocity.y = Mathf.Sqrt(secondJumpHeight * -2f * -9.82f);
                 animator.SetTrigger(jumpingTrigger);
                 isJumping = true;
             }
@@ -153,8 +155,15 @@ namespace Fedorosh
 #if UNITY_ANDROID
         private void AndroidJump()
         {
-            if(input.CanUseJump)
-            jumpButtonClicked = true;
+            if (input.CanUseJump)
+            {
+                jumpButtonClicked = true;
+
+            }
+        }
+        private void JumpDelay()
+        {
+
         }
 #endif
 

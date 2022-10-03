@@ -20,8 +20,8 @@ public class LockTouchInput : MonoBehaviour
 
     void Update()
     {
-        cinemachine.m_XAxis.m_InputAxisValue = touchField.TouchDist.x;
-        cinemachine.m_YAxis.m_InputAxisValue = touchField.TouchDist.y;
+        cinemachine.m_XAxis.m_InputAxisValue = touchField.TouchDist.normalized.x;
+        cinemachine.m_YAxis.m_InputAxisValue = touchField.TouchDist.normalized.y;
     }
 #endif
 }

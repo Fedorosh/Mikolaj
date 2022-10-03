@@ -20,10 +20,10 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.9056604, g: 0.8415806, b: 0.8415806, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1.36
+  m_AmbientIntensity: 0.86
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.5223834, g: 0.614049, b: 0.8584906, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: dea6b9c1bcbc448ad97333c375aada1d, type: 2}
@@ -486,7 +486,7 @@ LightingSettings:
   m_BounceScale: 1
   m_AlbedoBoost: 1
   m_IndirectOutputScale: 1
-  m_UsingShadowmask: 1
+  m_UsingShadowmask: 0
   m_BakeBackend: 1
   m_LightmapMaxSize: 1024
   m_BakeResolution: 40
@@ -497,7 +497,7 @@ LightingSettings:
   m_CompAOExponent: 1
   m_CompAOExponentDirect: 0
   m_ExtractAO: 0
-  m_MixedBakeMode: 2
+  m_MixedBakeMode: 0
   m_LightmapsBakeMode: 1
   m_FilterMode: 1
   m_LightmapParameters: {fileID: 15204, guid: 0000000000000000f000000000000000, type: 0}
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 200
+    m_MaxSpeed: 100
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
@@ -4020,13 +4020,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Present (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 8353840250760929080, guid: dee11eb4ff7493c47bdd51a480b039d3, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 16
-      objectReference: {fileID: 0}
     - target: {fileID: 8353840251357599050, guid: dee11eb4ff7493c47bdd51a480b039d3, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 16
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dee11eb4ff7493c47bdd51a480b039d3, type: 3}
@@ -10837,7 +10833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1637417646
 Light:
   m_ObjectHideFlags: 0
@@ -11877,7 +11873,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852977731}
-  m_LocalRotation: {x: 0.15669352, y: 0.000000008496918, z: -0.0000000013480641, w: 0.9876473}
+  m_LocalRotation: {x: 0.15669352, y: -0.000000008496919, z: 0.0000000013480642, w: 0.9876473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -12435,17 +12431,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2083732528}
     m_Modifications:
-    - target: {fileID: 3993377181397621704, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3993377181397621704, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -0.00024414
-      objectReference: {fileID: 0}
-    - target: {fileID: 3993377181397621704, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.000061035
+    - target: {fileID: 3528443555665389705, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
+      propertyPath: deadZone
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4620681373799008989, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
       propertyPath: m_Pivot.x
@@ -12755,7 +12743,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8057514560135263628, guid: 2055be167d23dc54f8312c0ee9dbc887, type: 3}
 --- !u!1 &2083732527
@@ -13618,6 +13606,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerWithCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642027, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9846421
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642027, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.17458512
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642027, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642027, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642027, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 17.909
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642027, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -28.033
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642027, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -9.299
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642031, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: m_RenderShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: speed
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: joystick
       value: 
@@ -13630,6 +13654,18 @@ PrefabInstance:
       propertyPath: jumpButton
       value: 
       objectReference: {fileID: 959232494}
+    - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: jumpHeight
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696436649793001168, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: secondJumpHeight
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696436649793001174, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: m_Radius
+      value: 0.45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
 --- !u!114 &8571113355176204056 stripped
