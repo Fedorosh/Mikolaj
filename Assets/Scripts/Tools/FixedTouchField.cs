@@ -18,6 +18,7 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     {
         if (Pressed)
         {
+#if UNITY_EDITOR
             if (pointerId >= 0 && pointerId < Input.touches.Length)
             {
                 TouchDist = Input.touches[pointerId].position - pointerOld;
@@ -28,6 +29,11 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
                 TouchDist = new Vector2(Input.mousePosition.x, Input.mousePosition.y) - pointerOld;
                 pointerOld = Input.mousePosition;
             }
+#else
+            if (pointerId >= 0 && pointerId < Input.touches.Length)
+                TouchDist = Input.touches[pointerId].deltaPosition;
+            else TouchDist = Input.GetTouch(0).deltaPosition;
+#endif
         }
         else
         {
