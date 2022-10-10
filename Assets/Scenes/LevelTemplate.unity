@@ -13558,6 +13558,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1830267730, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830267730, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: m_UpdateMethod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830267730, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: m_ShowCameraFrustum
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8571113354732516953, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -13605,6 +13617,10 @@ PrefabInstance:
     - target: {fileID: 8571113354732516954, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: m_Name
       value: PlayerWithCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571113354970642016, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8571113354970642027, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
       propertyPath: m_LocalRotation.w
