@@ -19,7 +19,8 @@ public class WinInfo : MonoBehaviour
     {
         if (Score == MaxScore)
         {
-            platinum.SetActive(true);
+            if(platinum != null)
+                platinum.SetActive(true);
             winText.text = platinumWin;
         }
         else

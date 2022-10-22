@@ -16,6 +16,7 @@ namespace Fedorosh
 
         [SerializeField] private PlayerMovement playerMovement;
         [SerializeField] private WinInfo winUI;
+        [SerializeField] private WinInfo loseUI;
 
         private AudioController audioController;
 
@@ -38,6 +39,13 @@ namespace Fedorosh
             audioController.PlayWinSound();
         }
 
+        public void ShowLoseScreen()
+        {
+            playerMovement.enabled = false;
+            loseUI.Score = presentsCollected;
+            loseUI.MaxScore = maxPresents;
+            loseUI.gameObject.SetActive(true);
+        }
 
         public void IncrementCollectedPresents(int i)
         {

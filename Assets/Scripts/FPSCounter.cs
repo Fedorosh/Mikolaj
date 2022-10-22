@@ -39,7 +39,7 @@ public class FPSCounter : MonoBehaviour
 
     private void GetFPS()
     {
-        fps = (int)(1f / Time.deltaTime);
+        fps = Mathf.RoundToInt(1f / Time.deltaTime);
         fpsText.text = fps + " fps";
     }
 }
