@@ -12,4 +12,8 @@ namespace Fedorosh.Collisions
     public class TriggerCollidedEvent : UnityEvent<DyingObject>
     {
     }
+
+    public class TriggerUncollidedEvent : UnityEvent<DyingObject>
+    {
+    }
 }

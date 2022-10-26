@@ -1,4 +1,5 @@
 ﻿using Fedorosh.Dying;
+using System.CodeDom;
 using System.Collections;
 using System.Threading;
 using UnityEngine;
@@ -16,35 +17,48 @@ namespace Fedorosh.Collisions.Collectables
 
         private bool isMoving = false;
 
+        Transform previousParent = null;
         Vector3 startPosition;
         protected override void OnCollided(DyingObject collision)
         {
+            previousParent = collision.transform.parent;
+            collision.transform.SetParent(transform);
             if(!isMoving)
             {
                 startPosition = platform.position;
-                StartCoroutine(MoveCoroutine());
+                StartCoroutine(MoveCoroutine(collision.GetComponent<CharacterController>()));
             }
         }
 
-        private IEnumerator MoveCoroutine()
+        protected override void OnUncollided(DyingObject collision)
         {
-            float timer = 0f;
+            collision.transform.SetParent(previousParent);
+            previousParent = null;
+        }
+
+        private IEnumerator MoveCoroutine(CharacterController player)
+        {
             isMoving = true;
+            yield return new WaitForSeconds(timeWaiting);
             while(Vector3.Distance(platform.position,destination.position) > acceptedDistance)
             {
-                timer += Time.deltaTime * speed;
-                platform.position = Vector3.Lerp(startPosition, destination.position, timer);
-                yield return null;
+                platform.Translate(platform.right * Time.deltaTime * speed);
+                if(player != null && player.transform.parent == transform)
+                    player.Move(platform.right * Time.deltaTime * speed);
+                yield return new WaitForFixedUpdate();
             }
+
             yield return new WaitForSeconds(timeWaiting);
-            timer = 0f;
+
             while (Vector3.Distance(platform.position, startPosition) > acceptedDistance)
             {
-                timer += Time.deltaTime * speed;
-                platform.position = Vector3.Lerp(destination.position, startPosition, timer);
-                yield return null;
+                platform.Translate(-platform.right * Time.deltaTime * speed);
+                if (player != null && player.transform.parent == transform)
+                    player.Move(-platform.right * Time.deltaTime * speed);
+                yield return new WaitForFixedUpdate();
             }
-            yield return null;
+            yield return new WaitForFixedUpdate();
+
             isMoving = false;
         }
 
@@ -55,7 +69,7 @@ namespace Fedorosh.Collisions.Collectables
                 if (!isMoving)
                 {
                     startPosition = platform.position;
-                    StartCoroutine(MoveCoroutine());
+                    StartCoroutine(MoveCoroutine(null));
                 }
             }
         }

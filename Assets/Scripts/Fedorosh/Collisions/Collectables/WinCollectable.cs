@@ -15,7 +15,7 @@ namespace Fedorosh.Collisions.Collectables
         {
             if(!collidedOnce)
             {
-                GameController.Instance.ShowWinScreen();
+                GameController.Instance.ShowWinScreen(collision);
                 Cursor.lockState = CursorLockMode.None;
                 collidedOnce = true;
             }

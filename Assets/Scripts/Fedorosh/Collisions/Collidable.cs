@@ -10,10 +10,12 @@ namespace Fedorosh.Collisions
     public abstract class Collidable : MonoBehaviour
     {
         protected TriggerCollidedEvent CollidedEvent = new TriggerCollidedEvent();
+        protected TriggerUncollidedEvent UncollidedEvent = new TriggerUncollidedEvent();
 
         protected virtual void Start()
         {
             CollidedEvent.AddListener(OnCollided);
+            UncollidedEvent.AddListener(OnUncollided);
         }
 
         public void InvokeCollidedEvent(DyingObject dyingObject)
@@ -21,7 +23,13 @@ namespace Fedorosh.Collisions
             CollidedEvent?.Invoke(dyingObject);
         }
 
+        public void InvokeUncollidedEvent(DyingObject dyingObject)
+        {
+            UncollidedEvent?.Invoke(dyingObject);
+        }
+
         protected abstract void OnCollided(DyingObject dyingObject);
+        protected abstract void OnUncollided(DyingObject dyingObject);
     }
 }
 

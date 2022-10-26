@@ -1,4 +1,5 @@
 ﻿using Fedorosh.Collisions.Collectables;
+using Fedorosh.Dying;
 using Fedorosh.Utils;
 using System;
 using System.Collections.Generic;
@@ -30,11 +31,13 @@ namespace Fedorosh
             audioController = GetComponent<AudioController>();
         }
 
-        public void ShowWinScreen()
+        public void ShowWinScreen(DyingObject obj)
         {
             playerMovement.enabled = false;
             winUI.Score = presentsCollected;
             winUI.MaxScore = maxPresents;
+            winUI.HP = obj.ObjectHP;
+            winUI.MaxHP = obj.ObjectMaxHP;
             winUI.gameObject.SetActive(true);
             audioController.PlayWinSound();
         }

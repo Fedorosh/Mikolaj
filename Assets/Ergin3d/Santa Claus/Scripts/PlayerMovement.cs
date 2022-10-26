@@ -36,6 +36,8 @@ namespace Fedorosh
 
         [SerializeField] private Button jumpButton;
 
+        public CharacterController GetCharacterController => controller;
+
         public static InputMiddleware input;
 
         public Transform groundCheck;

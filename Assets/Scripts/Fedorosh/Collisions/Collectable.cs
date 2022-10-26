@@ -14,5 +14,8 @@ namespace Fedorosh.Collisions
         {
             Destroy(gameObject);
         }
+        protected override void OnUncollided(DyingObject collision)
+        {
+        }
     }
 }

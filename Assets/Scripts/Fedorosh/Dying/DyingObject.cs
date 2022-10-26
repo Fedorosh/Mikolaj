@@ -16,6 +16,8 @@ namespace Fedorosh.Dying
 
         public int ObjectHP = 3;
 
+        public int ObjectMaxHP = 5;
+
         [Header("Optional references")]
         public CharacterController CharacterController;
 
@@ -29,6 +31,15 @@ namespace Fedorosh.Dying
             {
                 Collidable collidable = trigger._customColliderTrigger.GetComponent<Collidable>();
                 collidable.InvokeCollidedEvent(this);
+            }
+        }
+
+        private void OnTriggerExit(Collider hit)
+        {
+            if (hit.TryGetComponent(out CustomTrigger trigger))
+            {
+                Collidable collidable = trigger._customColliderTrigger.GetComponent<Collidable>();
+                collidable.InvokeUncollidedEvent(this);
             }
         }
     }

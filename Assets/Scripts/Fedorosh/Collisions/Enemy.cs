@@ -11,6 +11,10 @@ namespace Fedorosh.Collisions
         {
             collision.LastEnemyInfo = this;
         }
+
+        protected override void OnUncollided(DyingObject dyingObject)
+        {
+        }
     }
 }
 

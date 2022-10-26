@@ -14,10 +14,12 @@ public class WinInfo : MonoBehaviour
 
     public int MaxScore { get; set; }
     public int Score { get; set; }
+    public int MaxHP { get; set; }
+    public int HP { get; set; }
 
     private void OnEnable()
     {
-        if (Score == MaxScore)
+        if (Score == MaxScore && HP == MaxHP)
         {
             if(platinum != null)
                 platinum.SetActive(true);
