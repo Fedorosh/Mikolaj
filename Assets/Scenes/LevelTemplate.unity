@@ -1468,6 +1468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef95429308a90d3479bb5bfe414500ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchField: {fileID: 1349952358}
 --- !u!114 &457326639 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8571113354970642030, guid: c124b5ea575450c4e98a583dcc614d87, type: 3}
@@ -8483,6 +8484,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8353840250760929060, guid: dee11eb4ff7493c47bdd51a480b039d3, type: 3}
   m_PrefabInstance: {fileID: 1331933856}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1349952358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8055419835720084296, guid: 482bdeffa56692b4db93dad277fab03c, type: 3}
+  m_PrefabInstance: {fileID: 2044387646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9955f776ce90cc47b571ef80b43ff9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1389460242
 PrefabInstance:
   m_ObjectHideFlags: 0
