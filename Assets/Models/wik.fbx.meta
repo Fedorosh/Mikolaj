@@ -3,7 +3,47 @@ guid: caa74356411d8064fbf89695ce01121b
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyebrow010
+    second: {fileID: 2100000, guid: 4004e8ececa18964cae3b2a658822eaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: low-poly
+    second: {fileID: 2100000, guid: 385af834899e5fc46bc54680488cba6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: male_worksuit01
+    second: {fileID: 2100000, guid: f71cb9bed3e9311489c3a7b391ea56b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shoes05
+    second: {fileID: 2100000, guid: 46346e299b0e979418315ad786006f5e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: short02
+    second: {fileID: 2100000, guid: 3c406018f5452e143b9c6f3fc6ef1ddb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: teeth_shape04
+    second: {fileID: 2100000, guid: fa92551b14334da41af12f56df35047d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tongue01
+    second: {fileID: 2100000, guid: 46705f15fdc51c643a6add7230c06da6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wik
+    second: {fileID: 2100000, guid: f82be99731c29624a9e188ef5f97d0f9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
