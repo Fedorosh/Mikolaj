@@ -1,5 +1,7 @@
 ﻿
+using Fedorosh.Dying;
+
 public interface IRespawnBehaviour
 {
-    void Respawn();
+    void Respawn(DyingObject dyingObject);
 }

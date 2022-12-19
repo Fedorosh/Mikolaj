@@ -13,7 +13,9 @@ namespace Fedorosh
         private CharacterController controller;
         private Animator animator;
 
-        private IWalkBehaviour[] walkBehaviours;
+        private List<IWalkBehaviour> walkBehaviours = new List<IWalkBehaviour>();
+        private List<IDieBehaviour> dieBehaviours = new List<IDieBehaviour>();
+        private List<IRespawnBehaviour> respawnBehaviours = new List<IRespawnBehaviour>();
 
         public float speed = 12f;
         public float rotateSpeed = 400f;
@@ -22,8 +24,6 @@ namespace Fedorosh
         public float secondJumpHeight = 1.5f;
 
         private const string jumpingTrigger = "Jump";
-        private const string dyingTrigger = "Die";
-        private const string respawnTrigger = "Respawn";
 
         [SerializeField] private float turnSmoothTime = 0.1f;
         float turnSmoothVelocity;
@@ -57,15 +57,6 @@ namespace Fedorosh
         {
             controller = GetComponent<CharacterController>();
             animator = GetComponentInChildren<Animator>();
-
-            walkBehaviours = new IWalkBehaviour[2]
-            {
-                new StrafeWalkBehaviour(controller, turnSmoothTime, speed),
-                new WalkAnimationBehaviour(animator)
-            };
-
-            DyingController.TriggerDieEvent.AddListener(Die);
-            RespawningController.TriggerRespawnEvent.AddListener(Respawn);
             input = new InputMiddleware(joystick, GetComponent<DyingObject>());
 #if !UNITY_ANDROID
             Cursor.lockState = CursorLockMode.Locked;
@@ -74,19 +65,35 @@ namespace Fedorosh
             jumpHeight = pcSettings.jumpHeight;
 #endif
 #if UNITY_ANDROID
-        androidUI.SetActive(true);
-        rotateSpeed = androidSettings.turnSensitivity;
-        speed = androidSettings.walkSpeed;
-        jumpHeight = androidSettings.jumpHeight;
-        jumpButton.onClick.AddListener(AndroidJump);
+            androidUI.SetActive(true);
+            rotateSpeed = androidSettings.turnSensitivity;
+            speed = androidSettings.walkSpeed;
+            jumpHeight = androidSettings.jumpHeight;
+            jumpButton.onClick.AddListener(AndroidJump);
 #endif
+            walkBehaviours.AddRange(new IWalkBehaviour[2]
+            {
+                new StrafeWalkBehaviour(controller, turnSmoothTime, speed, cam),
+                new WalkAnimationBehaviour(animator)
+            });
+
+            dieBehaviours.AddRange(new IDieBehaviour[2]
+            {
+                new DieAnimationBehaviour(animator),
+                new DieLogicBehaviour(controller)
+            });
+
+            respawnBehaviours.AddRange(new IRespawnBehaviour[2]
+            {
+                new RespawnAnimationBehaviour(animator),
+                new RespawnLogicBehaviour(controller)
+            });
         }
 
         void Update()
         {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
             if (isGrounded && isJumping) isJumping = false;
-
 
             if (isGrounded && velocity.y < 0)
             {
@@ -97,34 +104,14 @@ namespace Fedorosh
             float z = input.GetAxis("Vertical");
             float x = input.GetAxis("Horizontal");
 #else
-        float z = input.GetVerticalJoystick();
-        float x = input.GetHorizontalJoystick();
+            float z = input.GetVerticalJoystick();
+            float x = input.GetHorizontalJoystick();
 #endif
 #if !UNITY_ANDROID
             if (input.GetKey(KeyCode.Mouse1)) z = 1f;
 #endif
-            foreach(var w in walkBehaviours)
+            foreach (var w in walkBehaviours)
                 w.Walk(x, z);
-
-            //Vector3 move = new Vector3(x, 0f, z).normalized;
-            //float magnitude = new Vector2(x, z).magnitude;
-
-
-
-            //if (move.magnitude >= 0.1f)
-            //{
-            //    float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            //    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle,
-            //        ref turnSmoothVelocity, turnSmoothTime);
-
-            //    transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
-            //    Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-
-            //    controller.Move(moveDir.normalized * magnitude * speed * Time.deltaTime);
-            //}
-
-
 #if !UNITY_ANDROID
             if (input.GetButtonDown("Jump") && isGrounded)
 #else
@@ -177,18 +164,6 @@ namespace Fedorosh
 
         }
 #endif
-
-        private void Die(DyingObject dyingObject)
-        {
-            animator.SetTrigger(dyingTrigger);
-            dyingObject.CharacterController.enabled = false;
-            GameController.AudioController.PlayDeathSound();
-        }
-        private void Respawn(DyingObject dyingObject)
-        {
-            animator.SetTrigger(respawnTrigger);
-            dyingObject.CharacterController.enabled = true;
-        }
     }
 }
 

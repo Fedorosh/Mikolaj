@@ -5,16 +5,18 @@ public class StrafeWalkBehaviour : IWalkBehaviour
 {
     private CharacterController characterController;
     private Transform transform;
+    private Transform cam;
     private float turnSmoothVelocity;
     private float turnSmoothTime;
     private float speed;
 
-    public StrafeWalkBehaviour(CharacterController characterController, float turnSmoothTime, float speed)
+    public StrafeWalkBehaviour(CharacterController characterController, float turnSmoothTime, float speed, Transform cam)
     { 
         this.characterController = characterController; 
         this.transform = characterController.transform;
         this.turnSmoothTime = turnSmoothTime;
         this.speed = speed;
+        this.cam = cam;
     }
 
     public void Walk(float x, float z)
@@ -25,7 +27,7 @@ public class StrafeWalkBehaviour : IWalkBehaviour
 
         if (move.magnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle,
                 ref turnSmoothVelocity, turnSmoothTime);
 

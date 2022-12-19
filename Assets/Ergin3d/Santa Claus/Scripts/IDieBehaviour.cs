@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Fedorosh.Dying;
+using UnityEngine;
 
 public interface IDieBehaviour
 {
-    void Die();
+    void Die(DyingObject dyingObject);
 }
