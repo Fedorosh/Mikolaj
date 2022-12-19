@@ -15,7 +15,7 @@ namespace Fedorosh
         [SerializeField] private int maxPresents = 1;
         private int presentsCollected;
 
-        [SerializeField] private PlayerMovement playerMovement;
+        [SerializeField] private Player playerMovement;
         [SerializeField] private WinInfo winUI;
         [SerializeField] private WinInfo loseUI;
 

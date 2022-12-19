@@ -8,9 +8,10 @@ using UnityEngine.UI;
 namespace Fedorosh
 {
     [RequireComponent(typeof(CharacterController))]
-    public class PlayerMovement : MonoBehaviour
+    public class Player : MonoBehaviour
     {
         private CharacterController controller;
+        private IMovementBehaviour movementBehaviour;
         private Animator animator;
 
         public float speed = 12f;
@@ -56,6 +57,7 @@ namespace Fedorosh
         {
             controller = GetComponent<CharacterController>();
             animator = GetComponentInChildren<Animator>();
+            movementBehaviour = new StrafeMovementBehaviour(controller, turnSmoothTime, speed);
             DyingController.TriggerDieEvent.AddListener(Die);
             RespawningController.TriggerRespawnEvent.AddListener(Respawn);
             input = new InputMiddleware(joystick, GetComponent<DyingObject>());
@@ -96,24 +98,26 @@ namespace Fedorosh
             if (input.GetKey(KeyCode.Mouse1)) z = 1f;
 #endif
 
-            Vector3 move = new Vector3(x, 0f, z).normalized;
-            float magnitude = new Vector2(x, z).magnitude;
+            movementBehaviour.Move(x, z);
 
-            if (animator != null)
-                animator.SetFloat(movingBool, magnitude);
+            //Vector3 move = new Vector3(x, 0f, z).normalized;
+            //float magnitude = new Vector2(x, z).magnitude;
 
-            if (move.magnitude >= 0.1f)
-            {
-                float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle,
-                    ref turnSmoothVelocity, turnSmoothTime);
+            //if (animator != null)
+            //    animator.SetFloat(movingBool, magnitude);
 
-                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            //if (move.magnitude >= 0.1f)
+            //{
+            //    float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            //    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle,
+            //        ref turnSmoothVelocity, turnSmoothTime);
 
-                Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            //    transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-                controller.Move(moveDir.normalized * magnitude * speed * Time.deltaTime);
-            }
+            //    Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+
+            //    controller.Move(moveDir.normalized * magnitude * speed * Time.deltaTime);
+            //}
 
 
 #if !UNITY_ANDROID

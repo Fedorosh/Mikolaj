@@ -7,7 +7,7 @@ namespace Fedorosh.Debug
     public class DebugChangeWalkIntensity : DebugAction
     {
         [SerializeField] private Text valueText;
-        [SerializeField] private PlayerMovement playerScript;
+        [SerializeField] private Player playerScript;
         [Range(1, 100)]
         public int stepMultiplier = 1;
         public int maxValue = 10000;
