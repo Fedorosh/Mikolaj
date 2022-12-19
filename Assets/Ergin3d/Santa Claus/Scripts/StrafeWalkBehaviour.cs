@@ -1,23 +1,23 @@
 ﻿using Fedorosh.HPFolder;
 using UnityEngine;
 
-public class StrafeMovementBehaviour : IMovementBehaviour
+public class StrafeWalkBehaviour : IWalkBehaviour
 {
     private CharacterController characterController;
+    private Transform transform;
     private float turnSmoothVelocity;
     private float turnSmoothTime;
     private float speed;
-    private Transform transform;
 
-    public StrafeMovementBehaviour(CharacterController characterController, float turnSmoothTime, float speed)
+    public StrafeWalkBehaviour(CharacterController characterController, float turnSmoothTime, float speed)
     { 
         this.characterController = characterController; 
-        this.turnSmoothTime = turnSmoothTime;
         this.transform = characterController.transform;
+        this.turnSmoothTime = turnSmoothTime;
         this.speed = speed;
     }
 
-    public void Move(float x, float z)
+    public void Walk(float x, float z)
     {
         //some moving
         Vector3 move = new Vector3(x, 0f, z).normalized;

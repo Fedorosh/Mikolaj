@@ -11,8 +11,9 @@ namespace Fedorosh
     public class Player : MonoBehaviour
     {
         private CharacterController controller;
-        private IMovementBehaviour movementBehaviour;
         private Animator animator;
+
+        private IWalkBehaviour[] walkBehaviours;
 
         public float speed = 12f;
         public float rotateSpeed = 400f;
@@ -20,7 +21,6 @@ namespace Fedorosh
         public float jumpHeight = 3.0f;
         public float secondJumpHeight = 1.5f;
 
-        private const string movingBool = "Walk";
         private const string jumpingTrigger = "Jump";
         private const string dyingTrigger = "Die";
         private const string respawnTrigger = "Respawn";
@@ -57,7 +57,13 @@ namespace Fedorosh
         {
             controller = GetComponent<CharacterController>();
             animator = GetComponentInChildren<Animator>();
-            movementBehaviour = new StrafeMovementBehaviour(controller, turnSmoothTime, speed);
+
+            walkBehaviours = new IWalkBehaviour[2]
+            {
+                new StrafeWalkBehaviour(controller, turnSmoothTime, speed),
+                new WalkAnimationBehaviour(animator)
+            };
+
             DyingController.TriggerDieEvent.AddListener(Die);
             RespawningController.TriggerRespawnEvent.AddListener(Respawn);
             input = new InputMiddleware(joystick, GetComponent<DyingObject>());
@@ -97,14 +103,13 @@ namespace Fedorosh
 #if !UNITY_ANDROID
             if (input.GetKey(KeyCode.Mouse1)) z = 1f;
 #endif
-
-            movementBehaviour.Move(x, z);
+            foreach(var w in walkBehaviours)
+                w.Walk(x, z);
 
             //Vector3 move = new Vector3(x, 0f, z).normalized;
             //float magnitude = new Vector2(x, z).magnitude;
 
-            //if (animator != null)
-            //    animator.SetFloat(movingBool, magnitude);
+
 
             //if (move.magnitude >= 0.1f)
             //{
