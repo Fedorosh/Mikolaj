@@ -3,15 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Fedorosh.Dying
-{
+//namespace Fedorosh.Dying
+//{
+    public class DyingObject : MonoBehaviour
+    {
     public enum DyingObjectState
     {
         Dead,
         Alive
     }
-    public class DyingObject : MonoBehaviour
-    {
         public DyingObjectState State;
 
         public int ObjectHP = 3;
@@ -44,4 +44,4 @@ namespace Fedorosh.Dying
         }
     }
 
-}
+//}
