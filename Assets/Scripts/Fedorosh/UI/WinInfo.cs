@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -19,16 +17,12 @@ public class WinInfo : MonoBehaviour
 
     private void OnEnable()
     {
-        if (Score == MaxScore && HP == MaxHP)
-        {
-            if(platinum != null)
-                platinum.SetActive(true);
-            winText.text = platinumWin;
-        }
-        else
-        {
-            winText.text = regularWin;
-        }
+        bool isPlatinum = Score == MaxScore && HP == MaxHP;
+
+        if (platinum != null)
+            platinum.SetActive(isPlatinum);
+
+        winText.text = isPlatinum ? platinumWin : regularWin;
 
         score.text = string.Format("{0}/{1}",Score,MaxScore);
     }

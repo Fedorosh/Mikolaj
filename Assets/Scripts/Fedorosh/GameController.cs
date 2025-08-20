@@ -29,6 +29,8 @@ namespace Fedorosh
         private void Start()
         {
             audioController = GetComponent<AudioController>();
+
+            QualitySettings.vSyncCount = 2;
         }
 
         public void ShowWinScreen(DyingObject obj)
